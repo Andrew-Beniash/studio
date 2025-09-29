@@ -1,4 +1,5 @@
 import { UserAvatar } from "./user-avatar";
+import { Bell } from "lucide-react";
 
 type HeaderProps = {
   avatarUrl: string | null;
@@ -11,7 +12,8 @@ export function Header({ avatarUrl }: HeaderProps) {
         <h1 className="text-2xl font-bold text-primary tracking-tight font-headline">
           Profile Header
         </h1>
-        <div className="absolute right-[10px]">
+        <div className="absolute right-[10px] flex items-center space-x-4">
+          <Bell className="h-6 w-6 text-foreground" />
           <UserAvatar avatarUrl={avatarUrl} />
         </div>
       </div>
