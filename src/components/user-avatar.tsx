@@ -9,7 +9,7 @@ type UserAvatarProps = {
 
 export function UserAvatar({ avatarUrl }: UserAvatarProps) {
   return (
-    <Avatar className="h-12 w-12 border-2 border-background shadow-lg">
+    <Avatar className="h-12 w-12 border-2 border-transparent shadow-lg">
       <AvatarImage src={avatarUrl || undefined} alt="User Avatar" />
       <AvatarFallback>
         <User className="h-6 w-6 text-muted-foreground" />
