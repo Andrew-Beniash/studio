@@ -11,7 +11,9 @@ export function Header({ avatarUrl }: HeaderProps) {
         <h1 className="text-2xl font-bold text-primary tracking-tight font-headline">
           Profile Header
         </h1>
-        <UserAvatar avatarUrl={avatarUrl} />
+        <div className="absolute right-[10px]">
+          <UserAvatar avatarUrl={avatarUrl} />
+        </div>
       </div>
     </header>
   );
