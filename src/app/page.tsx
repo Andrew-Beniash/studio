@@ -2,9 +2,24 @@
 
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Header } from "@/components/header";
 import { tasks } from "@/lib/tasks";
+import { MessageCircle } from "lucide-react";
 
 const getPriorityBadgeVariant = (priority: string) => {
   switch (priority.toLowerCase()) {
@@ -19,8 +34,19 @@ const getPriorityBadgeVariant = (priority: string) => {
   }
 };
 
-const deliverables = ["Tax Planning Memorandum", "After-Tax Savings Schedule", "Presentation"];
-const documents = ["Tax Returns 2024", "Trial Balance", "Fixed Asset Register", "Payroll Records", "State Appointment Data", "Forecasts and Budget"];
+const deliverables = [
+  "Tax Planning Memorandum",
+  "After-Tax Savings Schedule",
+  "Presentation",
+];
+const documents = [
+  "Tax Returns 2024",
+  "Trial Balance",
+  "Fixed Asset Register",
+  "Payroll Records",
+  "State Appointment Data",
+  "Forecasts and Budget",
+];
 
 export default function Home() {
   const [selectedTaskId, setSelectedTaskId] = useState<number | null>(null);
@@ -35,7 +61,7 @@ export default function Home() {
     setSelectedTaskId(null);
     setSelectedDocument(null);
   };
-  
+
   const handleDocumentClick = (doc: string) => {
     setSelectedDocument(doc);
   };
@@ -47,8 +73,8 @@ export default function Home() {
         {selectedTaskId === null ? (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {tasks.map((task) => (
-              <Card 
-                key={task.id} 
+              <Card
+                key={task.id}
                 className="flex flex-col shadow-drop-center cursor-pointer"
                 onClick={() => handleTaskClick(task.id)}
               >
@@ -59,10 +85,14 @@ export default function Home() {
                 <CardContent className="flex-grow flex flex-col justify-end">
                   <div className="flex justify-between items-end">
                     <div>
-                      <Badge variant={getPriorityBadgeVariant(task.priority)}>{task.priority}</Badge>
+                      <Badge variant={getPriorityBadgeVariant(task.priority)}>
+                        {task.priority}
+                      </Badge>
                     </div>
                     <div className="text-right">
-                      <p className="text-sm font-medium text-muted-foreground">Due Date</p>
+                      <p className="text-sm font-medium text-muted-foreground">
+                        Due Date
+                      </p>
                       <p className="text-sm">{task.dueDate}</p>
                     </div>
                   </div>
@@ -80,7 +110,11 @@ export default function Home() {
                 <CardContent>
                   <ul className="space-y-2 text-sm">
                     {deliverables.map((doc) => (
-                      <li key={doc} onClick={() => handleDocumentClick(doc)} className="cursor-pointer hover:underline">
+                      <li
+                        key={doc}
+                        onClick={() => handleDocumentClick(doc)}
+                        className="cursor-pointer hover:underline"
+                      >
                         {doc}
                       </li>
                     ))}
@@ -93,8 +127,12 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2 text-sm">
-                     {documents.map((doc) => (
-                      <li key={doc} onClick={() => handleDocumentClick(doc)} className="cursor-pointer hover:underline">
+                    {documents.map((doc) => (
+                      <li
+                        key={doc}
+                        onClick={() => handleDocumentClick(doc)}
+                        className="cursor-pointer hover:underline"
+                      >
                         {doc}
                       </li>
                     ))}
@@ -117,6 +155,24 @@ export default function Home() {
           </div>
         )}
       </main>
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button
+            className="fixed bottom-8 right-8 rounded-full w-16 h-16"
+            size="icon"
+          >
+            <MessageCircle className="h-8 w-8" />
+          </Button>
+        </DialogTrigger>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Chat</DialogTitle>
+          </DialogHeader>
+          <div>
+            <p>Your chat interface will go here.</p>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
