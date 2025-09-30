@@ -9,7 +9,7 @@ export function Header() {
           <SidebarTrigger>
               <Diamond className="h-8 w-8" color="#1f9cde" />
           </SidebarTrigger>
-          <h1 className="text-2xl font-bold text-white tracking-tight font-headline">
+          <h1 className="text-sm font-bold text-white tracking-tight">
             Tax Advisory Platform
           </h1>
         </div>
