@@ -1,7 +1,7 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
-import { SidebarProvider, Sidebar, SidebarInset, SidebarContent, SidebarHeader, SidebarFooter } from '@/components/ui/sidebar';
+import { SidebarProvider, Sidebar, SidebarInset, SidebarContent, SidebarHeader, SidebarFooter, SidebarInput } from '@/components/ui/sidebar';
 
 export const metadata: Metadata = {
   title: 'Tax Advisory Platform',
@@ -27,6 +27,9 @@ export default function RootLayout({
               {/* Sidebar Header Content */}
             </SidebarHeader>
             <SidebarContent>
+              <div className="p-2">
+                <SidebarInput placeholder="Search..." />
+              </div>
               {/* Sidebar Main Content */}
             </SidebarContent>
             <SidebarFooter>
