@@ -78,7 +78,7 @@ export default function Home() {
                   <CardTitle>Deliverables</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ul className="list-disc pl-5 space-y-2 text-sm">
+                  <ul className="space-y-2 text-sm">
                     {deliverables.map((doc) => (
                       <li key={doc} onClick={() => handleDocumentClick(doc)} className="cursor-pointer hover:underline">
                         {doc}
@@ -92,7 +92,7 @@ export default function Home() {
                   <CardTitle>Document Intake and Checklist</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ul className="list-disc pl-5 space-y-2 text-sm">
+                  <ul className="space-y-2 text-sm">
                      {documents.map((doc) => (
                       <li key={doc} onClick={() => handleDocumentClick(doc)} className="cursor-pointer hover:underline">
                         {doc}
