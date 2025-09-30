@@ -11,12 +11,12 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { Header } from "@/components/header";
 import { tasks } from "@/lib/tasks";
 
@@ -154,8 +154,8 @@ export default function Home() {
           </div>
         )}
       </main>
-      <Dialog>
-        <DialogTrigger asChild>
+      <Sheet>
+        <SheetTrigger asChild>
           <button className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-white/20 border border-white/30 backdrop-blur-md flex items-center justify-center hover:shadow-[0_0_15px_rgba(120,190,32,0.7)] transition">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -172,16 +172,16 @@ export default function Home() {
               />
             </svg>
           </button>
-        </DialogTrigger>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Chat</DialogTitle>
-          </DialogHeader>
+        </SheetTrigger>
+        <SheetContent>
+          <SheetHeader>
+            <SheetTitle>Chat</SheetTitle>
+          </SheetHeader>
           <div>
             <p>Your chat interface will go here.</p>
           </div>
-        </DialogContent>
-      </Dialog>
+        </SheetContent>
+      </Sheet>
     </div>
   );
 }
