@@ -78,7 +78,6 @@ export default function Home() {
               <CardContent className="flex-grow flex flex-col justify-end">
                 <div className="flex justify-between items-end">
                   <div>
-                    <p className="text-sm font-medium text-muted-foreground">Priority</p>
                     <Badge variant={getPriorityBadgeVariant(task.priority)}>{task.priority}</Badge>
                   </div>
                   <div className="text-right">
