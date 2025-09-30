@@ -14,7 +14,7 @@ import { Header } from "@/components/header";
 import { tasks } from "@/lib/tasks";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { X } from "lucide-react";
+import { X, Mic } from "lucide-react";
 
 const getPriorityBadgeVariant = (priority: string) => {
   switch (priority.toLowerCase()) {
@@ -182,7 +182,10 @@ export default function Home() {
                 Hello! How can I help you today?
               </p>
             </div>
-            <div className="flex gap-2 mb-5">
+            <div className="flex items-center gap-2 mb-5">
+              <Button variant="ghost" size="icon">
+                <Mic className="w-5 h-5" />
+              </Button>
               <Input placeholder="Type your message..." />
               <Button>Send</Button>
             </div>
