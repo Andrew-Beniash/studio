@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -19,7 +18,6 @@ import {
 } from "@/components/ui/dialog";
 import { Header } from "@/components/header";
 import { tasks } from "@/lib/tasks";
-import { MessageCircle } from "lucide-react";
 
 const getPriorityBadgeVariant = (priority: string) => {
   switch (priority.toLowerCase()) {
@@ -157,12 +155,22 @@ export default function Home() {
       </main>
       <Dialog>
         <DialogTrigger asChild>
-          <Button
-            className="fixed bottom-8 right-8 rounded-full w-16 h-16 chat-button"
-            size="icon"
-          >
-            <MessageCircle className="h-8 w-8 text-white" />
-          </Button>
+          <button className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-white/20 border border-white/30 backdrop-blur-md flex items-center justify-center hover:shadow-[0_0_15px_rgba(0,255,128,0.6)] transition">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              className="w-7 h-7 text-green-400 hover:text-white transition"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.985 9.985 0 01-4.418-.938L3 20l1.938-4.418A9.985 9.985 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+              />
+            </svg>
+          </button>
         </DialogTrigger>
         <DialogContent>
           <DialogHeader>
