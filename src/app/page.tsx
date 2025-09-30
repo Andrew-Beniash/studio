@@ -257,7 +257,7 @@ export default function Home() {
       {!isChatOpen && (
         <button
           onClick={toggleChat}
-          className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-white/20 border border-white/30 backdrop-blur-md flex items-center justify-center hover:shadow-[0_0_15px_rgba(120,190,32,0.7)] transition"
+          className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-gradient-to-r from-slate-700 to-slate-500 flex items-center justify-center hover:shadow-[0_0_15px_rgba(255,255,255,0.6)] transition"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -265,7 +265,7 @@ export default function Home() {
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
-            className="w-7 h-7 text-[#78BE20] hover:text-[#00A9CE] transition"
+            className="w-7 h-7 text-white transition"
           >
             <path
               strokeLinecap="round"
