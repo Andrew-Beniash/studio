@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Header } from "@/components/header";
@@ -63,32 +64,47 @@ const getPriorityBadgeVariant = (priority: string) => {
 };
 
 export default function Home() {
+  const [selectedTaskId, setSelectedTaskId] = useState<number | null>(null);
+
+  const handleTaskClick = (taskId: number) => {
+    setSelectedTaskId(taskId);
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow pt-16 pb-12 container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {tasks.map((task) => (
-            <Card key={task.id} className="flex flex-col shadow-drop-center">
-              <CardHeader>
-                <CardTitle>{task.title}</CardTitle>
-                <CardDescription>{task.customerName}</CardDescription>
-              </CardHeader>
-              <CardContent className="flex-grow flex flex-col justify-end">
-                <div className="flex justify-between items-end">
-                  <div>
-                    <Badge variant={getPriorityBadgeVariant(task.priority)}>{task.priority}</Badge>
+        {selectedTaskId === null ? (
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {tasks.map((task) => (
+              <Card 
+                key={task.id} 
+                className="flex flex-col shadow-drop-center cursor-pointer"
+                onClick={() => handleTaskClick(task.id)}
+              >
+                <CardHeader>
+                  <CardTitle>{task.title}</CardTitle>
+                  <CardDescription>{task.customerName}</CardDescription>
+                </CardHeader>
+                <CardContent className="flex-grow flex flex-col justify-end">
+                  <div className="flex justify-between items-end">
+                    <div>
+                      <Badge variant={getPriorityBadgeVariant(task.priority)}>{task.priority}</Badge>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-sm font-medium text-muted-foreground">Due Date</p>
+                      <p className="text-sm">{task.dueDate}</p>
+                    </div>
                   </div>
-                  <div className="text-right">
-                    <p className="text-sm font-medium text-muted-foreground">Due Date</p>
-                    <p className="text-sm">{task.dueDate}</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        ) : (
+          <div>
+            {/* Blank content area */}
+          </div>
+        )}
       </main>
     </div>
   );
