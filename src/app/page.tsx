@@ -14,7 +14,13 @@ import { Header } from "@/components/header";
 import { tasks } from "@/lib/tasks";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { X, Mic } from "lucide-react";
+import { X, Mic, Loader2 } from "lucide-react";
+import { sendMessage } from "./actions";
+
+type Message = {
+  role: "user" | "model";
+  content: string;
+};
 
 const getPriorityBadgeVariant = (priority: string) => {
   switch (priority.toLowerCase()) {
@@ -49,6 +55,12 @@ export default function Home() {
     null
   );
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const [chatInput, setChatInput] = useState("");
+  const [chatMessages, setChatMessages] = useState<Message[]>([
+    { role: "model", content: "Hello! How can I help you today?" },
+  ]);
+  const [isLoading, setIsLoading] = useState(false);
+
 
   const handleTaskClick = (taskId: number) => {
     setSelectedTaskId(taskId);
@@ -67,6 +79,27 @@ export default function Home() {
   const toggleChat = () => {
     setIsChatOpen(!isChatOpen);
   };
+
+  const handleSendMessage = async () => {
+    if (!chatInput.trim()) return;
+
+    const newMessages: Message[] = [...chatMessages, { role: "user", content: chatInput }];
+    setChatMessages(newMessages);
+    setChatInput("");
+    setIsLoading(true);
+
+    try {
+      const history = newMessages.slice(0, -1);
+      const response = await sendMessage(history, chatInput);
+      setChatMessages([...newMessages, { role: "model", content: response }]);
+    } catch (error) {
+      console.error("Error sending message:", error);
+      setChatMessages([...newMessages, { role: "model", content: "Sorry, something went wrong." }]);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -177,17 +210,46 @@ export default function Home() {
                 <X className="w-5 h-5" />
               </button>
             </div>
-            <div className="flex-grow p-4 bg-muted/40 rounded-lg my-4">
-              <p className="text-sm text-foreground">
-                Hello! How can I help you today?
-              </p>
+            <div className="flex-grow p-4 bg-muted/40 rounded-lg my-4 space-y-4 overflow-y-auto">
+              {chatMessages.map((msg, index) => (
+                <div
+                  key={index}
+                  className={`flex ${
+                    msg.role === "user" ? "justify-end" : "justify-start"
+                  }`}
+                >
+                  <div
+                    className={`p-2 rounded-lg max-w-xs ${
+                      msg.role === "user"
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-secondary"
+                    }`}
+                  >
+                    <p className="text-sm">{msg.content}</p>
+                  </div>
+                </div>
+              ))}
+               {isLoading && (
+                  <div className="flex justify-start">
+                    <div className="p-2 rounded-lg bg-secondary">
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                    </div>
+                  </div>
+                )}
             </div>
             <div className="flex items-center gap-2 mb-5">
               <Button variant="ghost" size="icon">
                 <Mic className="w-5 h-5" />
               </Button>
-              <Input placeholder="Type your message..." />
-              <Button>Send</Button>
+              <Input 
+                placeholder="Type your message..." 
+                value={chatInput}
+                onChange={(e) => setChatInput(e.target.value)}
+                onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
+              />
+              <Button onClick={handleSendMessage} disabled={isLoading}>
+                {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : 'Send'}
+              </Button>
             </div>
           </div>
         </div>

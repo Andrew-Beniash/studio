@@ -1,4 +1,4 @@
 import { config } from 'dotenv';
 config();
 
-import '@/ai/flows/profile-image-selection.ts';
+import '@/ai/flows/chat';
