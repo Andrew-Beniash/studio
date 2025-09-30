@@ -80,7 +80,14 @@ export default function Home() {
                   <CardTitle>Document Intake and Checklist</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  {/* Content for Document Intake and Checklist */}
+                  <ul className="list-disc pl-5 space-y-2 text-sm">
+                    <li>Tax Returns 2024</li>
+                    <li>Trial Balance</li>
+                    <li>Fixed Asset Register</li>
+                    <li>Payroll Records</li>
+                    <li>State Appointment Data</li>
+                    <li>Forecasts and Budget</li>
+                  </ul>
                 </CardContent>
               </Card>
             </div>
