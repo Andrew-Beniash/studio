@@ -19,6 +19,8 @@ import {
 } from "@/components/ui/sheet";
 import { Header } from "@/components/header";
 import { tasks } from "@/lib/tasks";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 const getPriorityBadgeVariant = (priority: string) => {
   switch (priority.toLowerCase()) {
@@ -177,8 +179,16 @@ export default function Home() {
           <SheetHeader>
             <SheetTitle>Chat</SheetTitle>
           </SheetHeader>
-          <div>
-            <p>Your chat interface will go here.</p>
+          <div className="flex flex-col h-full">
+            <div className="flex-grow p-4 bg-muted/40 rounded-lg my-4">
+              <p className="text-sm text-foreground">
+                Hello! How can I help you today?
+              </p>
+            </div>
+            <div className="flex gap-2">
+              <Input placeholder="Type your message..." />
+              <Button>Send</Button>
+            </div>
           </div>
         </SheetContent>
       </Sheet>
