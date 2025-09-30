@@ -189,25 +189,27 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <button
-        onClick={toggleChat}
-        className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-white/20 border border-white/30 backdrop-blur-md flex items-center justify-center hover:shadow-[0_0_15px_rgba(120,190,32,0.7)] transition"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          className="w-7 h-7 text-[#78BE20] hover:text-[#00A9CE] transition"
+      {!isChatOpen && (
+        <button
+          onClick={toggleChat}
+          className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-white/20 border border-white/30 backdrop-blur-md flex items-center justify-center hover:shadow-[0_0_15px_rgba(120,190,32,0.7)] transition"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.985 9.985 0 01-4.418-.938L3 20l1.938-4.418A9.985 9.985 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-          />
-        </svg>
-      </button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            className="w-7 h-7 text-[#78BE20] hover:text-[#00A9CE] transition"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.985 9.985 0 01-4.418-.938L3 20l1.938-4.418A9.985 9.985 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+            />
+          </svg>
+        </button>
+      )}
     </div>
   );
 }
