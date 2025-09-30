@@ -19,15 +19,25 @@ const getPriorityBadgeVariant = (priority: string) => {
   }
 };
 
+const deliverables = ["Tax Planning Memorandum", "After-Tax Savings Schedule", "Presentation"];
+const documents = ["Tax Returns 2024", "Trial Balance", "Fixed Asset Register", "Payroll Records", "State Appointment Data", "Forecasts and Budget"];
+
 export default function Home() {
   const [selectedTaskId, setSelectedTaskId] = useState<number | null>(null);
+  const [selectedDocument, setSelectedDocument] = useState<string | null>(null);
 
   const handleTaskClick = (taskId: number) => {
     setSelectedTaskId(taskId);
+    setSelectedDocument(null);
   };
 
   const handleTitleClick = () => {
     setSelectedTaskId(null);
+    setSelectedDocument(null);
+  };
+  
+  const handleDocumentClick = (doc: string) => {
+    setSelectedDocument(doc);
   };
 
   return (
@@ -69,9 +79,11 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <ul className="list-disc pl-5 space-y-2 text-sm">
-                    <li>Tax Planning Memorandum</li>
-                    <li>After-Tax Savings Schedule</li>
-                    <li>Presentation</li>
+                    {deliverables.map((doc) => (
+                      <li key={doc} onClick={() => handleDocumentClick(doc)} className="cursor-pointer hover:underline">
+                        {doc}
+                      </li>
+                    ))}
                   </ul>
                 </CardContent>
               </Card>
@@ -81,18 +93,26 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <ul className="list-disc pl-5 space-y-2 text-sm">
-                    <li>Tax Returns 2024</li>
-                    <li>Trial Balance</li>
-                    <li>Fixed Asset Register</li>
-                    <li>Payroll Records</li>
-                    <li>State Appointment Data</li>
-                    <li>Forecasts and Budget</li>
+                     {documents.map((doc) => (
+                      <li key={doc} onClick={() => handleDocumentClick(doc)} className="cursor-pointer hover:underline">
+                        {doc}
+                      </li>
+                    ))}
                   </ul>
                 </CardContent>
               </Card>
             </div>
             <div className="col-span-2">
-              {/* This will be the main content area on the right */}
+              {selectedDocument && (
+                <Card>
+                  <CardHeader>
+                    <CardTitle>{selectedDocument}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p>Content for {selectedDocument} will be displayed here.</p>
+                  </CardContent>
+                </Card>
+              )}
             </div>
           </div>
         )}
