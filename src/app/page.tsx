@@ -68,7 +68,11 @@ export default function Home() {
                   <CardTitle>Deliverables</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  {/* Content for Deliverables */}
+                  <ul className="list-disc pl-5 space-y-2 text-sm">
+                    <li>Tax Planning Memorandum</li>
+                    <li>After-Tax Savings Schedule</li>
+                    <li>Presentation</li>
+                  </ul>
                 </CardContent>
               </Card>
               <Card>
