@@ -74,7 +74,7 @@ export default function Home() {
       <div className="flex flex-grow pt-16">
         <main
           className={`flex-grow pb-12 container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col transition-all duration-300 ${
-            isChatOpen ? "pr-96" : "pr-4"
+            isChatOpen ? "pr-[30%]" : "pr-4"
           }`}
         >
           {selectedTaskId === null ? (
@@ -168,7 +168,7 @@ export default function Home() {
           className={`fixed top-11 right-0 h-full bg-slate-50 border-l transition-transform duration-300 ${
             isChatOpen ? "translate-x-0" : "translate-x-full"
           }`}
-          style={{ width: "24rem" }}
+          style={{ width: "30%" }}
         >
           <div className="flex flex-col h-full p-4">
             <div className="flex justify-between items-center">
