@@ -1,9 +1,25 @@
-import { Bell, Diamond, Settings } from "lucide-react";
+import { Bell, Settings } from "lucide-react";
 import { SidebarTrigger } from "./ui/sidebar";
 
 type HeaderProps = {
   onTitleClick?: () => void;
 };
+
+const Logo = () => (
+  <svg
+    width="32"
+    height="32"
+    viewBox="0 0 100 100"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <polygon points="50,0 100,25 100,75 50,100 0,75 0,25" fill="#29B6F6" />
+    <polygon points="50,0 100,25 50,50" fill="#0288D1" />
+    <polygon points="50,100 100,75 50,50" fill="#424242" />
+    <polygon points="50,100 0,75 50,50" fill="#66BB6A" />
+    <polygon points="50,0 0,25 50,50" fill="#43A047" />
+  </svg>
+);
+
 
 export function Header({ onTitleClick }: HeaderProps) {
   return (
@@ -11,7 +27,7 @@ export function Header({ onTitleClick }: HeaderProps) {
       <div className="container mx-auto flex h-11 items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="absolute left-[10px] flex items-center space-x-4">
           <SidebarTrigger>
-              <Diamond className="h-8 w-8" color="white" />
+              <Logo />
           </SidebarTrigger>
           <h1 
             className="text-sm font-bold text-white tracking-tight cursor-pointer" 
