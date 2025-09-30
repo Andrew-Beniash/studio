@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -155,14 +156,14 @@ export default function Home() {
       </main>
       <Dialog>
         <DialogTrigger asChild>
-          <button className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-white/20 border border-white/30 backdrop-blur-md flex items-center justify-center hover:shadow-[0_0_15px_rgba(0,255,128,0.6)] transition">
+          <button className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-white/20 border border-white/30 backdrop-blur-md flex items-center justify-center hover:shadow-[0_0_15px_rgba(120,190,32,0.7)] transition">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
-              className="w-7 h-7 text-green-400 hover:text-white transition"
+              className="w-7 h-7 text-[#78BE20] hover:text-[#00A9CE] transition"
             >
               <path
                 strokeLinecap="round"
