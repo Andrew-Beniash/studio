@@ -43,7 +43,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <Header onTitleClick={handleTitleClick} />
-      <main className="flex-grow pt-16 pb-12 container mx-auto px-4 sm:px-6 lg:px-8">
+      <main className="flex-grow pt-16 pb-12 container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col">
         {selectedTaskId === null ? (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {tasks.map((task) => (
@@ -71,7 +71,7 @@ export default function Home() {
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-3 gap-8">
+          <div className="grid grid-cols-3 gap-8 flex-grow">
             <div className="col-span-1 flex flex-col gap-8">
               <Card>
                 <CardHeader>
@@ -102,13 +102,13 @@ export default function Home() {
                 </CardContent>
               </Card>
             </div>
-            <div className="col-span-2">
+            <div className="col-span-2 flex flex-col">
               {selectedDocument && (
-                <Card>
+                <Card className="flex-grow flex flex-col">
                   <CardHeader>
                     <CardTitle>{selectedDocument}</CardTitle>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="flex-grow">
                     <p>Content for {selectedDocument} will be displayed here.</p>
                   </CardContent>
                 </Card>
