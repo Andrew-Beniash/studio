@@ -185,7 +185,7 @@ export default function Home() {
                 Hello! How can I help you today?
               </p>
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-2 mb-5">
               <Input placeholder="Type your message..." />
               <Button>Send</Button>
             </div>
