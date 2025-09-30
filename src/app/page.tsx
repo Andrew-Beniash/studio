@@ -70,7 +70,7 @@ export default function Home() {
       <main className="flex-grow pt-16 pb-12 container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {tasks.map((task) => (
-            <Card key={task.id} className="flex flex-col">
+            <Card key={task.id} className="flex flex-col shadow-drop-center">
               <CardHeader>
                 <CardTitle>{task.title}</CardTitle>
                 <CardDescription>{task.customerName}</CardDescription>
