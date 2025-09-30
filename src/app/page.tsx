@@ -158,10 +158,10 @@ export default function Home() {
       <Dialog>
         <DialogTrigger asChild>
           <Button
-            className="fixed bottom-8 right-8 rounded-full w-16 h-16"
+            className="fixed bottom-8 right-8 rounded-full w-16 h-16 chat-button"
             size="icon"
           >
-            <MessageCircle className="h-8 w-8" />
+            <MessageCircle className="h-8 w-8 text-white" />
           </Button>
         </DialogTrigger>
         <DialogContent>
