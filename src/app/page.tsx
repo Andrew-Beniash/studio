@@ -14,6 +14,7 @@ import { Header } from "@/components/header";
 import { tasks } from "@/lib/tasks";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { X } from "lucide-react";
 
 const getPriorityBadgeVariant = (priority: string) => {
   switch (priority.toLowerCase()) {
@@ -170,7 +171,12 @@ export default function Home() {
           style={{ width: "24rem" }}
         >
           <div className="flex flex-col h-full p-4">
-            <h2 className="text-lg font-semibold">Chat</h2>
+            <div className="flex justify-between items-center">
+              <h2 className="text-lg font-semibold">Chat</h2>
+              <button onClick={toggleChat} className="p-1">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
             <div className="flex-grow p-4 bg-muted/40 rounded-lg my-4">
               <p className="text-sm text-foreground">
                 Hello! How can I help you today?
