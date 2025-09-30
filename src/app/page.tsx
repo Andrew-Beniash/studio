@@ -61,8 +61,28 @@ export default function Home() {
             ))}
           </div>
         ) : (
-          <div>
-            {/* Blank content area */}
+          <div className="grid grid-cols-3 gap-8">
+            <div className="col-span-1 flex flex-col gap-8">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Deliverables</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {/* Content for Deliverables */}
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Document Intake and Checklist</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {/* Content for Document Intake and Checklist */}
+                </CardContent>
+              </Card>
+            </div>
+            <div className="col-span-2">
+              {/* This will be the main content area on the right */}
+            </div>
           </div>
         )}
       </main>
