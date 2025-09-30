@@ -27,7 +27,7 @@ export default function RootLayout({
               {/* Sidebar Header Content */}
             </SidebarHeader>
             <SidebarContent>
-              <div className="p-2">
+              <div className="p-2 mt-5">
                 <SidebarInput placeholder="Search..." />
               </div>
               {/* Sidebar Main Content */}
