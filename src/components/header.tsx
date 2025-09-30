@@ -1,4 +1,4 @@
-import { Bell, Mountain, Settings } from "lucide-react";
+import { Bell, Diamond, Settings } from "lucide-react";
 import { SidebarTrigger } from "./ui/sidebar";
 
 export function Header() {
@@ -7,7 +7,7 @@ export function Header() {
       <div className="container mx-auto flex h-11 items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="absolute left-[10px] flex items-center space-x-4">
           <SidebarTrigger>
-              <Mountain className="h-8 w-8 text-primary" />
+              <Diamond className="h-8 w-8" color="#1f9cde" />
           </SidebarTrigger>
           <h1 className="text-2xl font-bold text-primary tracking-tight font-headline">
             Profile Header
