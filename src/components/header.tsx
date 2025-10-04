@@ -1,5 +1,5 @@
 
-import { Bell, Settings, ChevronDown } from "lucide-react";
+import { Bell, Settings, ChevronDown, Search } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -47,8 +47,9 @@ export function Header({ onTitleClick, selectedTask, onOpportunityAnalysisClick 
                 </div>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-80 bg-background/80 backdrop-blur-sm p-0">
-                <div className="p-2">
-                    <Input placeholder="Search client data" />
+                <div className="p-2 relative">
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Input placeholder="search across client data" className="pl-8" />
                 </div>
                 <DropdownMenuSeparator />
                 <DropdownMenuLabel>QUICK LINKS</DropdownMenuLabel>
