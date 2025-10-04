@@ -35,7 +35,7 @@ const getPriorityBadgeVariant = (priority: string) => {
     case "medium":
       return "medium";
     case "low":
-      return "outline";
+      return "medium";
     default:
       return "default";
   }
@@ -604,3 +604,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
