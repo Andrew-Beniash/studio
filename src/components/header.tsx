@@ -49,7 +49,7 @@ export function Header({ onTitleClick, selectedTask }: HeaderProps) {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#78BE20] to-[#00A9CE] shadow-md">
       <div className="container mx-auto flex h-11 items-center justify-between px-4 sm:px-6 lg:px-8 relative">
-        <div className="absolute left-[10px] flex items-center space-x-4">
+        <div className="flex items-center gap-4">
           <SidebarTrigger>
               <Menu className="h-5 w-5 text-white" />
           </SidebarTrigger>
@@ -73,7 +73,7 @@ export function Header({ onTitleClick, selectedTask }: HeaderProps) {
           </div>
         )}
 
-        <div className="absolute right-[10px] flex items-center space-x-4">
+        <div className="flex items-center space-x-4">
           <Bell className="h-4 w-4 text-white" />
           <Settings className="h-4 w-4 text-white" />
         </div>
@@ -81,5 +81,3 @@ export function Header({ onTitleClick, selectedTask }: HeaderProps) {
     </header>
   );
 }
-
-    
