@@ -328,7 +328,7 @@ export default function Home() {
                       ) : selectedDocument === 'Tax Planning Memorandum' ? (
                         <div className="text-sm space-y-4">
                           <p><strong>To:</strong> Management, ABC Consulting, Inc.</p>
-                          <p><strong>From:</strong> RSM US LLP – Tax Advisory Services</p>
+                          <p><strong>From:</strong> NextWaveWinner US LLP</p>
                           <p><strong>Date:</strong> December 31, 2024</p>
                           <p><strong>Subject:</strong> Year-End Tax Planning Considerations for ABC Consulting, Inc.</p>
 
@@ -506,6 +506,8 @@ export default function Home() {
       )}
     </div>
   );
+
+    
 
     
 
