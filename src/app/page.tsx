@@ -31,7 +31,7 @@ type Message = {
 const getPriorityBadgeVariant = (priority: string) => {
   switch (priority.toLowerCase()) {
     case "high":
-      return "destructive";
+      return "high";
     case "medium":
       return "secondary";
     case "low":
