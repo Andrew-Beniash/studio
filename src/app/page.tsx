@@ -313,9 +313,6 @@ export default function Home() {
                           <Badge variant={getStatusBadgeVariant(doc.status)}>
                             {doc.status}
                           </Badge>
-                          <Badge variant="outline">
-                            {doc.lastUpdated}
-                          </Badge>
                         </li>
                       ))}
                     </ul>
@@ -588,6 +585,8 @@ export default function Home() {
   );
 
     
+    
+
     
 
     
