@@ -298,15 +298,16 @@ export default function Home() {
                   <CardContent>
                     <ul className="space-y-4 text-sm">
                       {deliverables.map((doc) => (
-                        <li key={doc.name} className="flex items-center space-x-2">
-                          <Checkbox id={doc.name} />
-                          <label
-                            htmlFor={doc.name}
+                        <li
+                          key={doc.name}
+                          className="flex items-center space-x-2"
+                        >
+                          <span
                             onClick={() => handleDocumentClick(doc.name)}
-                            className="cursor-pointer leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                            className="cursor-pointer"
                           >
                             {doc.name}
-                          </label>
+                          </span>
                           <Badge variant={getStatusBadgeVariant(doc.status)}>
                             {doc.status}
                           </Badge>
@@ -579,3 +580,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
