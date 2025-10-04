@@ -33,7 +33,7 @@ const getPriorityBadgeVariant = (priority: string) => {
     case "high":
       return "high";
     case "medium":
-      return "secondary";
+      return "medium";
     case "low":
       return "outline";
     default:
