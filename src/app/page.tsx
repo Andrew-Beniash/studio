@@ -489,7 +489,7 @@ export default function Home() {
         </main>
         <div
           ref={chatPanelRef}
-          className={`fixed top-11 right-0 h-full bg-slate-50/10 border-l transition-transform duration-300 ${
+          className={`fixed top-11 right-0 h-full bg-slate-50/90 border-l transition-transform duration-300 ${
             isChatOpen ? "translate-x-0" : "translate-x-full"
           }`}
           style={{ width: "30%" }}
@@ -500,7 +500,7 @@ export default function Home() {
                 <X className="w-5 h-5" />
               </button>
             </div>
-            <div className="flex-grow p-4 bg-muted/40 rounded-lg my-4 space-y-4 overflow-y-auto">
+            <div className="flex-grow p-4 bg-muted/90 rounded-lg my-4 space-y-4 overflow-y-auto">
               {chatMessages.map((msg, index) => (
                 <div
                   key={index}
