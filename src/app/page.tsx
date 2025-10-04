@@ -349,8 +349,7 @@ export default function Home() {
           style={{ width: "30%" }}
         >
           <div className="flex flex-col h-full p-4">
-            <div className="flex justify-between items-center">
-              <h2 className="text-lg font-semibold">Chat</h2>
+            <div className="flex justify-end items-center">
               <button onClick={toggleChat} className="p-1">
                 <X className="w-5 h-5" />
               </button>
@@ -436,4 +435,5 @@ export default function Home() {
       )}
     </div>
   );
-}
+
+    
