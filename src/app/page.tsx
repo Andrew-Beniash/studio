@@ -87,7 +87,6 @@ export default function Home() {
     { role: "model", content: "Hello! How can I help you today?" },
   ]);
   const [isLoading, setIsLoading] = useState(false);
-  const [driveFiles, setDriveFiles] = useState<any[]>([]);
 
   const handleTaskClick = (taskId: number) => {
     setSelectedTaskId(taskId);
@@ -134,7 +133,7 @@ export default function Home() {
       <div className="flex flex-grow pt-16">
         <main
           className={`flex-grow pb-12 px-4 sm:px-6 lg:px-8 flex flex-col transition-all duration-300 ${
-            isChatOpen ? "pr-[30%]" : "pr-4"
+            isChatOpen ? "pr-[30%]" : ""
           }`}
         >
           {selectedTaskId === null ? (
@@ -175,27 +174,23 @@ export default function Home() {
                     <CardTitle>Deliverables</CardTitle>
                   </CardHeader>
                   <CardContent>
-                  <ul className="space-y-4 text-sm">
+                    <ul className="space-y-4 text-sm">
                       {deliverables.map((doc) => (
-                        <li key={doc.name} className="flex flex-col space-y-2">
-                          <div className="flex items-center space-x-2">
-                            <Checkbox id={doc.name} />
-                            <label
-                              htmlFor={doc.name}
-                              onClick={() => handleDocumentClick(doc.name)}
-                              className="cursor-pointer hover:underline leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                            >
-                              {doc.name}
-                            </label>
-                          </div>
-                          <div className="flex items-center space-x-2 pl-6">
-                            <Badge variant={getStatusBadgeVariant(doc.status)}>
-                              {doc.status}
-                            </Badge>
-                            <Badge variant="outline">
-                              {doc.lastUpdated}
-                            </Badge>
-                          </div>
+                        <li key={doc.name} className="flex items-center space-x-2">
+                          <Checkbox id={doc.name} />
+                          <label
+                            htmlFor={doc.name}
+                            onClick={() => handleDocumentClick(doc.name)}
+                            className="cursor-pointer hover:underline leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                          >
+                            {doc.name}
+                          </label>
+                          <Badge variant={getStatusBadgeVariant(doc.status)}>
+                            {doc.status}
+                          </Badge>
+                          <Badge variant="outline">
+                            {doc.lastUpdated}
+                          </Badge>
                         </li>
                       ))}
                     </ul>
@@ -206,31 +201,17 @@ export default function Home() {
                     <CardTitle>Document Intake and Checklist</CardTitle>
                   </CardHeader>
                   <CardContent>
-                  {driveFiles.length > 0 ? (
-                      <ul className="space-y-2 text-sm">
-                        {driveFiles.map((file) => (
-                          <li
-                            key={file.id}
-                            onClick={() => handleDocumentClick(file.name)}
-                            className="cursor-pointer hover:underline"
-                          >
-                            {file.name}
-                          </li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <ul className="space-y-2 text-sm">
-                        {documents.map((doc) => (
-                          <li
-                            key={doc}
-                            onClick={() => handleDocumentClick(doc)}
-                            className="cursor-pointer hover:underline"
-                          >
-                            {doc}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                    <ul className="space-y-2 text-sm">
+                      {documents.map((doc) => (
+                        <li
+                          key={doc}
+                          onClick={() => handleDocumentClick(doc)}
+                          className="cursor-pointer hover:underline"
+                        >
+                          {doc}
+                        </li>
+                      ))}
+                    </ul>
                   </CardContent>
                 </Card>
               </div>
