@@ -37,9 +37,21 @@ const getPriorityBadgeVariant = (priority: string) => {
 };
 
 const deliverables = [
-  "Tax Planning Memorandum",
-  "After-Tax Savings Schedule",
-  "Presentation",
+  {
+    name: "Tax Planning Memorandum",
+    status: "Draft",
+    lastUpdated: "2024-09-28",
+  },
+  {
+    name: "After-Tax Savings Schedule",
+    status: "Reviewed",
+    lastUpdated: "2024-09-25",
+  },
+  {
+    name: "Presentation",
+    status: "Final",
+    lastUpdated: "2024-09-20",
+  },
 ];
 const documents = [
   "Tax Returns 2024",
@@ -49,6 +61,20 @@ const documents = [
   "State Appointment Data",
   "Forecasts and Budget",
 ];
+
+const getStatusBadgeVariant = (status: string) => {
+  switch (status.toLowerCase()) {
+    case "draft":
+      return "secondary";
+    case "reviewed":
+      return "outline";
+    case "final":
+      return "default";
+    default:
+      return "default";
+  }
+};
+
 
 export default function Home() {
   const [selectedTaskId, setSelectedTaskId] = useState<number | null>(null);
@@ -149,17 +175,27 @@ export default function Home() {
                     <CardTitle>Deliverables</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-4 text-sm">
+                  <ul className="space-y-4 text-sm">
                       {deliverables.map((doc) => (
-                        <li key={doc} className="flex items-center space-x-2">
-                          <Checkbox id={doc} />
-                          <label
-                            htmlFor={doc}
-                            onClick={() => handleDocumentClick(doc)}
-                            className="cursor-pointer hover:underline leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                          >
-                            {doc}
-                          </label>
+                        <li key={doc.name} className="flex flex-col space-y-2">
+                          <div className="flex items-center space-x-2">
+                            <Checkbox id={doc.name} />
+                            <label
+                              htmlFor={doc.name}
+                              onClick={() => handleDocumentClick(doc.name)}
+                              className="cursor-pointer hover:underline leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                            >
+                              {doc.name}
+                            </label>
+                          </div>
+                          <div className="flex items-center space-x-2 pl-6">
+                            <Badge variant={getStatusBadgeVariant(doc.status)}>
+                              {doc.status}
+                            </Badge>
+                            <Badge variant="outline">
+                              {doc.lastUpdated}
+                            </Badge>
+                          </div>
                         </li>
                       ))}
                     </ul>
