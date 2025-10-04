@@ -16,7 +16,7 @@ import { Header } from "@/components/header";
 import { tasks, type Task } from "@/lib/tasks";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { X, Mic, Loader2, Calendar } from "lucide-react";
+import { X, Mic, Loader2, Calendar, Mail } from "lucide-react";
 import { sendMessage } from "./actions";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { placeholderImages } from "@/lib/placeholder-images";
@@ -365,7 +365,10 @@ export default function Home() {
                 <Card className="shadow-drop-center">
                   <CardHeader className="flex-row items-center justify-between">
                     <CardTitle>Engagement Team</CardTitle>
-                    <Calendar className="h-4 w-4 text-muted-foreground" />
+                    <div className="flex items-center gap-2">
+                      <Mail className="h-4 w-4 text-muted-foreground" />
+                      <Calendar className="h-4 w-4 text-muted-foreground" />
+                    </div>
                   </CardHeader>
                   <CardContent className="flex space-x-2">
                     {placeholderImages.slice(0, 4).map((image, index) => (
@@ -382,7 +385,7 @@ export default function Home() {
                             />
                           </Avatar>
                         </PopoverTrigger>
-                        <PopoverContent className="w-80">
+                        <PopoverContent className="w-80 opacity-90">
                           <ContactCard 
                             name={image.name || ''}
                             role={image.role || ''}
@@ -629,6 +632,8 @@ export default function Home() {
     </div>
   );
 }
+
+    
 
     
 
