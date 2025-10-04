@@ -44,17 +44,14 @@ const deliverables = [
   {
     name: "Tax Planning Memorandum",
     status: "Draft",
-    lastUpdated: "2024-09-28",
   },
   {
     name: "After-Tax Savings Schedule",
     status: "Reviewed",
-    lastUpdated: "2024-09-25",
   },
   {
     name: "Presentation",
     status: "Final",
-    lastUpdated: "2024-09-20",
   },
 ];
 const documents = [
@@ -362,6 +359,7 @@ export default function Home() {
                           alt={image.description}
                           width={40}
                           height={40}
+                          className="object-cover"
                           data-ai-hint={image.imageHint}
                         />
                         <AvatarFallback>
@@ -585,6 +583,8 @@ export default function Home() {
   );
 
     
+    
+
     
 
     
