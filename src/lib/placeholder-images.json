@@ -4,25 +4,37 @@
       "id": "1",
       "description": "Team member 1",
       "imageUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwZXJzb24lMjBmYWNlfGVufDB8fHx8MTc1OTU3ODk3NXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "person face"
+      "imageHint": "person face",
+      "name": "Jane Doe",
+      "role": "Signer",
+      "phone": "(123) 456-7890"
     },
     {
       "id": "2",
       "description": "Team member 2",
       "imageUrl": "https://images.unsplash.com/photo-1693039537350-3bba6975add7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwZXJzb24lMjBmYWNlfGVufDB8fHx8MTc1OTU3ODk3NXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "person face"
+      "imageHint": "person face",
+      "name": "John Smith",
+      "role": "Manager",
+      "phone": "(098) 765-4321"
     },
     {
       "id": "3",
       "description": "Team member 3",
       "imageUrl": "https://images.unsplash.com/photo-1695470667338-e7e8608ff048?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwZXJzb24lMjBmYWNlfGVufDB8fHx8MTc1OTU3ODk3NXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "person face"
+      "imageHint": "person face",
+      "name": "Emily White",
+      "role": "Associate",
+      "phone": "(555) 123-4567"
     },
     {
       "id": "4",
       "description": "Team member 4",
       "imageUrl": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwZXJzb24lMjBmYWNlfGVufDB8fHx8MTc1OTU3ODk3NXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "person face"
+      "imageHint": "person face",
+      "name": "Michael Brown",
+      "role": "Signer",
+      "phone": "(111) 222-3333"
     }
   ]
 }

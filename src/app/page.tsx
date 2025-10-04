@@ -23,6 +23,8 @@ import { placeholderImages } from "@/lib/placeholder-images";
 import { AlertDialog, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogFooter, AlertDialogCancel, AlertDialogDescription } from "@/components/ui/alert-dialog";
 import { OpportunityAnalysisContent } from "@/components/opportunity-analysis";
 import { useToast } from "@/hooks/use-toast";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { ContactCard } from "@/components/contact-card";
 
 type Message = {
   role: "user" | "model";
@@ -366,16 +368,28 @@ export default function Home() {
                   </CardHeader>
                   <CardContent className="flex space-x-2">
                     {placeholderImages.slice(0, 4).map((image, index) => (
-                      <Avatar key={image.id} className={index === placeholderImages.slice(0, 4).length - 1 ? 'border border-green-500' : ''}>
-                        <Image
-                          src={image.imageUrl}
-                          alt={image.description}
-                          width={40}
-                          height={40}
-                          className="object-cover"
-                          data-ai-hint={image.imageHint}
-                        />
-                      </Avatar>
+                      <Popover key={image.id}>
+                        <PopoverTrigger>
+                          <Avatar className={index === placeholderImages.slice(0, 4).length - 1 ? 'border border-green-500' : ''}>
+                            <Image
+                              src={image.imageUrl}
+                              alt={image.description}
+                              width={40}
+                              height={40}
+                              className="object-cover"
+                              data-ai-hint={image.imageHint}
+                            />
+                          </Avatar>
+                        </PopoverTrigger>
+                        <PopoverContent className="w-80">
+                          <ContactCard 
+                            name={image.name || ''}
+                            role={image.role || ''}
+                            phone={image.phone || ''}
+                            imageUrl={image.imageUrl}
+                          />
+                        </PopoverContent>
+                      </Popover>
                     ))}
                   </CardContent>
                 </Card>
@@ -614,5 +628,7 @@ export default function Home() {
     </div>
   );
 }
+
+    
 
     
