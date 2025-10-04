@@ -117,6 +117,7 @@ export default function Home() {
   const [isDrafting, setIsDrafting] = useState(false);
   const [suggestedResponses, setSuggestedResponses] = useState<string[]>([]);
   const [explainChip, setExplainChip] = useState<{ top: number; left: number; width: number } | null>(null);
+  const [isExplainChipExpanded, setIsExplainChipExpanded] = useState(false);
   const chatPanelRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -133,6 +134,8 @@ export default function Home() {
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (chatPanelRef.current && !chatPanelRef.current.contains(event.target as Node)) {
+        // Do not close chat if clicking on explain chip
+        if ((event.target as HTMLElement).closest('[data-explain-chip]')) return;
         setIsChatOpen(false);
       }
     }
@@ -149,7 +152,12 @@ export default function Home() {
   }, [isChatOpen]);
 
   useEffect(() => {
-    const handleMouseUp = () => {
+    const handleMouseUp = (event: MouseEvent) => {
+        // Don't show chip if clicking on an already expanded chip
+        if ((event.target as HTMLElement).closest('[data-explain-chip]')) {
+            return;
+        }
+
         const selection = window.getSelection();
         if (selection && selection.toString().trim() !== "" && contentRef.current?.contains(selection.anchorNode)) {
             const range = selection.getRangeAt(0);
@@ -160,8 +168,10 @@ export default function Home() {
                 left: rect.left - contentRect.left + (rect.width / 2) - 40, // Center horizontally
                 width: rect.width
             });
+            setIsExplainChipExpanded(false); // Reset expanded state
         } else {
             setExplainChip(null);
+            setIsExplainChipExpanded(false);
         }
     };
 
@@ -233,6 +243,10 @@ export default function Home() {
         "Ask client’s controller/payroll contact for clarification of $415.",
         "Document resolution for tax provision and deferred compensation review.",
     ]);
+  };
+  
+  const handleExplainClick = () => {
+    setIsExplainChipExpanded(!isExplainChipExpanded);
   };
 
 
@@ -347,10 +361,20 @@ export default function Home() {
                     <CardContent className="flex-grow relative" ref={contentRef}>
                       {explainChip && (
                           <div
-                              className="absolute z-10 px-3 py-1 text-sm text-white bg-gradient-to-r from-[#78BE20] to-[#00A9CE] rounded-md shadow-lg"
+                              data-explain-chip
+                              className={`absolute z-10 text-white bg-gradient-to-r from-[#78BE20] to-[#00A9CE] rounded-md shadow-lg cursor-pointer transition-all duration-300 ${isExplainChipExpanded ? 'p-4 max-w-md' : 'px-3 py-1 text-sm'}`}
                               style={{ top: `${explainChip.top}px`, left: `${explainChip.left}px` }}
+                              onClick={handleExplainClick}
                           >
-                              Explain
+                              {isExplainChipExpanded ? (
+                                <div className="text-sm space-y-2">
+                                  <h4 className="font-bold">Payroll Accrual Mismatch</h4>
+                                  <p>Trial balance reflects $4,200 in salaries payable, while payroll records support $3,785, resulting in a variance of $415.</p>
+                                  <p><strong>Recommendation:</strong> Confirm whether the variance is attributable to unrecorded holiday/overtime pay or an over-accrual. Adjust as appropriate to avoid overstating deductible compensation. This ensures compliance with IRS regulations on timing of wage deductions under IRC §461.</p>
+                                </div>
+                              ) : (
+                                'Explain'
+                              )}
                           </div>
                       )}
                       {isDrafting && selectedDocument === 'Tax Planning Memorandum' ? (
@@ -540,4 +564,5 @@ export default function Home() {
     </div>
   );
 
+    
     
