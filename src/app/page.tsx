@@ -17,6 +17,8 @@ import { Button } from "@/components/ui/button";
 import { X, Mic, Loader2 } from "lucide-react";
 import { sendMessage } from "./actions";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, TableCaption } from "@/components/ui/table";
+
 
 type Message = {
   role: "user" | "model";
@@ -73,6 +75,32 @@ const getStatusBadgeVariant = (status: string) => {
     default:
       return "default";
   }
+};
+
+const trialBalanceData = [
+    { account: 'Cash', debit: '25,000', credit: '' },
+    { account: 'Accounts Receivable', debit: '18,500', credit: '' },
+    { account: 'Prepaid Expenses', debit: '2,000', credit: '' },
+    { account: 'Office Supplies', debit: '1,200', credit: '' },
+    { account: 'Furniture & Equipment', debit: '15,000', credit: '' },
+    { account: 'Accumulated Depreciation', debit: '', credit: '3,000' },
+    { account: 'Accounts Payable', debit: '', credit: '9,800' },
+    { account: 'Salaries Payable', debit: '', credit: '4,200' },
+    { account: 'Unearned Revenue', debit: '', credit: '2,500' },
+    { account: 'Bank Loan Payable', debit: '', credit: '10,000' },
+    { account: 'Common Stock', debit: '', credit: '20,000' },
+    { account: 'Retained Earnings', debit: '', credit: '8,200' },
+    { account: 'Service Revenue', debit: '', credit: '40,000' },
+    { account: 'Salaries Expense', debit: '22,000', credit: '' },
+    { account: 'Rent Expense', debit: '6,000', credit: '' },
+    { account: 'Utilities Expense', debit: '1,500', credit: '' },
+    { account: 'Depreciation Expense', debit: '3,000', credit: '' },
+    { account: 'Miscellaneous Expense', debit: '500', credit: '' },
+];
+  
+const trialBalanceTotals = {
+    debit: '94,700',
+    credit: '94,700',
 };
 
 
@@ -247,9 +275,39 @@ export default function Home() {
                       <CardTitle>{selectedDocument}</CardTitle>
                     </CardHeader>
                     <CardContent className="flex-grow">
-                      <p>
-                        Content for {selectedDocument} will be displayed here.
-                      </p>
+                      {selectedDocument === 'Trial Balance' ? (
+                         <div className="text-center mb-4">
+                            <h3 className="text-lg font-semibold">Trial Balance of ABC Consulting, Inc.</h3>
+                            <p className="text-sm text-muted-foreground">As of December 31, 2024</p>
+                            <Table>
+                                <TableHeader>
+                                    <TableRow>
+                                    <TableHead className="text-left">Account Name</TableHead>
+                                    <TableHead className="text-right">Debit (USD)</TableHead>
+                                    <TableHead className="text-right">Credit (USD)</TableHead>
+                                    </TableRow>
+                                </TableHeader>
+                                <TableBody>
+                                    {trialBalanceData.map((row) => (
+                                    <TableRow key={row.account}>
+                                        <TableCell className="text-left">{row.account}</TableCell>
+                                        <TableCell className="text-right">{row.debit}</TableCell>
+                                        <TableCell className="text-right">{row.credit}</TableCell>
+                                    </TableRow>
+                                    ))}
+                                     <TableRow className="font-bold">
+                                        <TableCell className="text-left">Totals</TableCell>
+                                        <TableCell className="text-right">{trialBalanceTotals.debit}</TableCell>
+                                        <TableCell className="text-right">{trialBalanceTotals.credit}</TableCell>
+                                    </TableRow>
+                                </TableBody>
+                            </Table>
+                         </div>
+                      ) : (
+                        <p>
+                            Content for {selectedDocument} will be displayed here.
+                        </p>
+                      )}
                     </CardContent>
                   </Card>
                 )}
