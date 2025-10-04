@@ -295,18 +295,14 @@ export default function Home() {
                     <CardTitle>Deliverables</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-4 text-sm">
+                    <ul className="space-y-1 text-sm -mx-2">
                       {deliverables.map((doc) => (
                         <li
                           key={doc.name}
-                          className="flex items-center space-x-2"
+                          onClick={() => handleDocumentClick(doc.name)}
+                          className="flex items-center justify-between p-2 rounded-md cursor-pointer hover:bg-gray-100"
                         >
-                          <span
-                            onClick={() => handleDocumentClick(doc.name)}
-                            className="cursor-pointer"
-                          >
-                            {doc.name}
-                          </span>
+                          <span>{doc.name}</span>
                           <Badge variant={getStatusBadgeVariant(doc.status)}>
                             {doc.status}
                           </Badge>
@@ -326,12 +322,12 @@ export default function Home() {
                         <span>Retrieving documents from iManage</span>
                       </div>
                     ) : (
-                      <ul className="space-y-2 text-sm">
+                      <ul className="space-y-1 text-sm -mx-2">
                         {documents.map((doc) => (
                           <li
                             key={doc.name}
                             onClick={() => handleDocumentClick(doc.name)}
-                            className="cursor-pointer flex items-center"
+                            className="cursor-pointer flex items-center justify-between p-2 rounded-md hover:bg-gray-100"
                           >
                             <span>{doc.name}</span>
                             {doc.status === 'Review Needed' && (
@@ -579,3 +575,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
