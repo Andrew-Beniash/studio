@@ -4,8 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Check, AlertTriangle, Clock } from "lucide-react";
 
-const Section = ({ title, children, value }: { title: string, children: React.ReactNode, value: string }) => (
-  <AccordionItem value={value} className="border-t border-black/5">
+const Section = ({ title, children, value, className }: { title: string, children: React.ReactNode, value: string, className?: string }) => (
+  <AccordionItem value={value} className={cn("border-t border-black/5", className)}>
     <AccordionTrigger className="py-4 text-[10px] font-semibold tracking-wider uppercase text-black/40 hover:no-underline">
       {title}
     </AccordionTrigger>
@@ -75,7 +75,7 @@ export function OpportunityAnalysisContent() {
           <InfoRow label="Historical Conversion Rate" value="92% (AI-Derived)" />
         </Section>
 
-        <Section title="Recommended Actions" value="item-5">
+        <Section title="Recommended Actions" value="item-5" className="border-b-0">
           <div className="bg-gray-50 p-3 rounded-md">
             <p className="font-semibold text-sm">Suggested Next Step:</p>
             <p className="text-sm">Schedule scoping call with SALT team and add Credits & Incentives review to the proposal.</p>
