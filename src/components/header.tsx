@@ -14,9 +14,10 @@ import type { Task } from "@/lib/tasks";
 type HeaderProps = {
   onTitleClick?: () => void;
   selectedTask?: Task | null;
+  onOpportunityAnalysisClick?: () => void;
 };
 
-export function Header({ onTitleClick, selectedTask }: HeaderProps) {
+export function Header({ onTitleClick, selectedTask, onOpportunityAnalysisClick }: HeaderProps) {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#78BE20] to-[#00A9CE] shadow-md">
@@ -60,7 +61,7 @@ export function Header({ onTitleClick, selectedTask }: HeaderProps) {
                 <DropdownMenuItem>
                   <span>Contracts</span>
                 </DropdownMenuItem>
-                <DropdownMenuItem>
+                <DropdownMenuItem onSelect={onOpportunityAnalysisClick}>
                   <span>Opportunity Analysis</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>

@@ -20,6 +20,8 @@ import { X, Mic, Loader2 } from "lucide-react";
 import { sendMessage } from "./actions";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { placeholderImages } from "@/lib/placeholder-images";
+import { AlertDialog, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription, AlertDialogFooter, AlertDialogCancel } from "@/components/ui/alert-dialog";
+import { OpportunityAnalysisContent } from "@/components/opportunity-analysis";
 
 type Message = {
   role: "user" | "model";
@@ -116,6 +118,7 @@ export default function Home() {
   const [suggestedResponses, setSuggestedResponses] = useState<string[]>([]);
   const [explainChip, setExplainChip] = useState<{ top: number; left: number; width: number } | null>(null);
   const [isExplainChipExpanded, setIsExplainChipExpanded] = useState(false);
+  const [isOpportunityAnalysisOpen, setIsOpportunityAnalysisOpen] = useState(false);
   const chatPanelRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -250,7 +253,11 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Header onTitleClick={handleTitleClick} selectedTask={selectedTask} />
+      <Header
+        onTitleClick={handleTitleClick}
+        selectedTask={selectedTask}
+        onOpportunityAnalysisClick={() => setIsOpportunityAnalysisOpen(true)}
+      />
       <div className="flex flex-grow pt-16">
         <main
           className={`flex-grow pb-12 px-4 sm:px-6 lg:px-8 flex flex-col transition-all duration-300 ${
@@ -295,7 +302,7 @@ export default function Home() {
                     <CardTitle>Deliverables</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-1 text-sm -mx-2">
+                  <ul className="space-y-1 text-sm -mx-2">
                       {deliverables.map((doc) => (
                         <li
                           key={doc.name}
@@ -572,8 +579,19 @@ export default function Home() {
           </svg>
         </button>
       )}
+       <AlertDialog open={isOpportunityAnalysisOpen} onOpenChange={setIsOpportunityAnalysisOpen}>
+        <AlertDialogContent className="max-w-2xl">
+          <AlertDialogHeader>
+            <AlertDialogTitle>Opportunity Analysis</AlertDialogTitle>
+            <AlertDialogDescription>
+              <OpportunityAnalysisContent />
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Close</AlertDialogCancel>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }
-
-    
