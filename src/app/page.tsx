@@ -85,7 +85,7 @@ const trialBalanceData = [
     { account: 'Furniture & Equipment', debit: '15,000', credit: '' },
     { account: 'Accumulated Depreciation', debit: '', credit: '3,000' },
     { account: 'Accounts Payable', debit: '', credit: '9,800' },
-    { account: 'Salaries Payable', debit: '', credit: '4,200' },
+    { account: 'Salaries Payable', debit: '', credit: '4,200', status: 'Mismatch' },
     { account: 'Unearned Revenue', debit: '', credit: '2,500' },
     { account: 'Bank Loan Payable', debit: '', credit: '10,000' },
     { account: 'Common Stock', debit: '', credit: '20,000' },
@@ -290,7 +290,16 @@ export default function Home() {
                                 <TableBody>
                                     {trialBalanceData.map((row) => (
                                     <TableRow key={row.account}>
-                                        <TableCell className="text-left">{row.account}</TableCell>
+                                        <TableCell className="text-left">
+                                          <div className="flex items-center">
+                                            {row.status && (
+                                              <Badge className="mr-2 bg-orange-500 text-white">
+                                                {row.status}
+                                              </Badge>
+                                            )}
+                                            <span>{row.account}</span>
+                                          </div>
+                                        </TableCell>
                                         <TableCell className="text-right">{row.debit}</TableCell>
                                         <TableCell className="text-right">{row.credit}</TableCell>
                                     </TableRow>
