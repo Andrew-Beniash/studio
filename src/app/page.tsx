@@ -11,15 +11,14 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Avatar } from "@/components/ui/avatar";
 import { Header } from "@/components/header";
 import { tasks, type Task } from "@/lib/tasks";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { X, Mic, Loader2 } from "lucide-react";
 import { sendMessage } from "./actions";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, TableCaption } from "@/components/ui/table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { placeholderImages } from "@/lib/placeholder-images";
 
 type Message = {
@@ -580,5 +579,3 @@ export default function Home() {
     </div>
   );
 }
-
-    

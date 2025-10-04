@@ -1,51 +1,22 @@
 
-import { Bell, Settings, Menu, ChevronDown } from "lucide-react";
-import { SidebarTrigger } from "./ui/sidebar";
+import { Bell, Settings, ChevronDown } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import type { Task } from "@/lib/tasks";
+import { tasks } from "@/lib/tasks";
 
 type HeaderProps = {
   onTitleClick?: () => void;
   selectedTask?: Task | null;
 };
 
-const Logo = () => (
-  <svg
-    width="32"
-    height="32"
-    viewBox="0 0 100 100"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <defs>
-      <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style={{ stopColor: '#78BE20', stopOpacity: 1 }} />
-        <stop offset="100%" style={{ stopColor: '#00A9CE', stopOpacity: 1 }} />
-      </linearGradient>
-    </defs>
-    <path
-      d="M50,0 L100,25 L100,75 L50,100 L0,75 L0,25 Z"
-      fill="url(#logoGradient)"
-    />
-    <path
-      d="M50,0 L100,25 L50,50 Z"
-      fill="rgba(255, 255, 255, 0.2)"
-    />
-    <path
-      d="M50,100 L100,75 L50,50 Z"
-      fill="rgba(0, 0, 0, 0.2)"
-    />
-    <path
-      d="M50,100 L0,75 L50,50 Z"
-      fill="rgba(255, 255, 255, 0.2)"
-    />
-    <path
-      d="M50,0 L0,25 L50,50 Z"
-      fill="rgba(0, 0, 0, 0.2)"
-    />
-  </svg>
-);
-
-
 export function Header({ onTitleClick, selectedTask }: HeaderProps) {
+  const otherTasks = tasks.filter(task => task.id !== selectedTask?.id);
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#78BE20] to-[#00A9CE] shadow-md">
       <div className="flex h-11 items-center justify-between px-4 sm:px-6 lg:px-8 relative">
@@ -60,14 +31,27 @@ export function Header({ onTitleClick, selectedTask }: HeaderProps) {
         </div>
         
         {selectedTask && (
-          <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-2">
-            <h2 
-              className="text-white"
-              style={{fontFamily: 'SF Pro, sans-serif', fontWeight: 700, fontSize: '13px', lineHeight: '16px'}}
-            >
-              ABC Consulting - State Nexus Analysis 2024
-            </h2>
-            <ChevronDown className="h-4 w-4 text-white" />
+          <div className="absolute left-1/2 -translate-x-1/2">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <div className="flex items-center gap-2 cursor-pointer">
+                  <h2 
+                    className="text-white"
+                    style={{fontFamily: 'SF Pro, sans-serif', fontWeight: 700, fontSize: '13px', lineHeight: '16px'}}
+                  >
+                    {selectedTask.customerName} - {selectedTask.title}
+                  </h2>
+                  <ChevronDown className="h-4 w-4 text-white" />
+                </div>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                {otherTasks.map(task => (
+                  <DropdownMenuItem key={task.id}>
+                    <span>{task.customerName} - {task.title}</span>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         )}
 
