@@ -1,3 +1,4 @@
+
 "use client"
 
 import * as React from "react"
@@ -148,7 +149,7 @@ const DropdownMenuLabel = React.forwardRef<
   <DropdownMenuPrimitive.Label
     ref={ref}
     className={cn(
-      "py-2.5 px-4 text-[11px] font-semibold tracking-wider uppercase text-black/60 border-b border-black/5",
+      "py-2.5 px-4 text-[11px] font-semibold tracking-wider uppercase text-black/60 border-t border-b border-white",
       inset && "pl-8",
       className
     )}
