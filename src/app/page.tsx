@@ -20,7 +20,7 @@ import { X, Mic, Loader2 } from "lucide-react";
 import { sendMessage } from "./actions";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { placeholderImages } from "@/lib/placeholder-images";
-import { AlertDialog, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription, AlertDialogFooter, AlertDialogCancel } from "@/components/ui/alert-dialog";
+import { AlertDialog, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogFooter, AlertDialogCancel } from "@/components/ui/alert-dialog";
 import { OpportunityAnalysisContent } from "@/components/opportunity-analysis";
 
 type Message = {
@@ -583,9 +583,7 @@ export default function Home() {
         <AlertDialogContent className="max-w-2xl">
           <AlertDialogHeader>
             <AlertDialogTitle>Opportunity Analysis</AlertDialogTitle>
-            <AlertDialogDescription>
-              <OpportunityAnalysisContent />
-            </AlertDialogDescription>
+            <OpportunityAnalysisContent />
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>Close</AlertDialogCancel>
@@ -595,3 +593,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
