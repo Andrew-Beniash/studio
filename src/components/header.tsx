@@ -50,9 +50,6 @@ export function Header({ onTitleClick, selectedTask }: HeaderProps) {
     <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#78BE20] to-[#00A9CE] shadow-md">
       <div className="flex h-11 items-center justify-between px-4 sm:px-6 lg:px-8 relative">
         <div className="flex items-center gap-4">
-          <SidebarTrigger>
-              <Menu className="h-5 w-5 text-white" />
-          </SidebarTrigger>
           <h1 
             className="text-white tracking-tight cursor-pointer" 
             style={{ fontFamily: 'Inter, sans-serif', fontSize: '17px', fontWeight: 700, lineHeight: '22px' }}
