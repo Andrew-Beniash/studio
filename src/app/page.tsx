@@ -365,9 +365,13 @@ export default function Home() {
                 <Card className="shadow-drop-center">
                   <CardHeader className="flex-row items-center justify-between">
                     <CardTitle>Engagement Team</CardTitle>
-                    <div className="flex items-center gap-2">
-                      <Mail className="h-4 w-4 text-muted-foreground" />
-                      <Calendar className="h-4 w-4 text-muted-foreground" />
+                    <div className="flex items-center -mr-2">
+                      <button className="p-2 rounded-md hover:bg-[#f5f5f7] text-muted-foreground hover:text-blue-600">
+                        <Mail className="h-4 w-4" />
+                      </button>
+                      <button className="p-2 rounded-md hover:bg-[#f5f5f7] text-muted-foreground hover:text-blue-600">
+                        <Calendar className="h-4 w-4" />
+                      </button>
                     </div>
                   </CardHeader>
                   <CardContent className="flex space-x-2">
@@ -632,6 +636,8 @@ export default function Home() {
     </div>
   );
 }
+
+    
 
     
 
