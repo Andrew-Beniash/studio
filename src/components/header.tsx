@@ -1,5 +1,5 @@
 
-import { Bell, Settings, Menu } from "lucide-react";
+import { Bell, Settings, Menu, ChevronDown } from "lucide-react";
 import { SidebarTrigger } from "./ui/sidebar";
 import type { Task } from "@/lib/tasks";
 
@@ -60,13 +60,14 @@ export function Header({ onTitleClick, selectedTask }: HeaderProps) {
         </div>
         
         {selectedTask && (
-          <div className="absolute left-1/2 -translate-x-1/2">
+          <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-2">
             <h2 
               className="text-white"
               style={{fontFamily: 'SF Pro, sans-serif', fontWeight: 700, fontSize: '13px', lineHeight: '16px'}}
             >
               ABC Consulting - State Nexus Analysis 2024
             </h2>
+            <ChevronDown className="h-4 w-4 text-white" />
           </div>
         )}
 
