@@ -89,7 +89,7 @@ export function OpportunityAnalysisContent() {
               <AlertTriangle className="w-4 h-4 mr-1" />
               Flag for Review
             </Button>
-            <Button size="sm" className="bg-green-600 hover:bg-green-700">
+            <Button size="sm" className="bg-gradient-to-r from-[#78BE20] to-[#00A9CE] text-white">
               <Check className="w-4 h-4 mr-1" />
               Proceed
             </Button>
@@ -101,4 +101,5 @@ export function OpportunityAnalysisContent() {
 }
 
     
+
 
