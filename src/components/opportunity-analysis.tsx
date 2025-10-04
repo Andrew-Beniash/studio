@@ -99,9 +99,3 @@ export function OpportunityAnalysisContent() {
     </div>
   );
 }
-
-    
-
-
-
-
