@@ -114,6 +114,7 @@ export default function Home() {
   const [chatMessages, setChatMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isRetrievingDocuments, setIsRetrievingDocuments] = useState(false);
+  const [isDrafting, setIsDrafting] = useState(false);
   const [suggestedResponses, setSuggestedResponses] = useState<string[]>([]);
   const chatPanelRef = useRef<HTMLDivElement>(null);
 
@@ -157,6 +158,13 @@ export default function Home() {
 
   const handleDocumentClick = (doc: string) => {
     setSelectedDocument(doc);
+    if (doc === 'Tax Planning Memorandum') {
+      setIsDrafting(true);
+      const timer = setTimeout(() => {
+        setIsDrafting(false);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
   };
 
   const toggleChat = () => {
@@ -257,7 +265,7 @@ export default function Home() {
                           <label
                             htmlFor={doc.name}
                             onClick={() => handleDocumentClick(doc.name)}
-                            className="cursor-pointer hover:underline leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                            className="cursor-pointer leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                           >
                             {doc.name}
                           </label>
@@ -312,7 +320,12 @@ export default function Home() {
                       <CardTitle>{selectedDocument}</CardTitle>
                     </CardHeader>
                     <CardContent className="flex-grow">
-                      {selectedDocument === 'Trial Balance' ? (
+                      {isDrafting && selectedDocument === 'Tax Planning Memorandum' ? (
+                        <div className="flex items-center space-x-2 text-muted-foreground">
+                          <Loader2 className="w-5 h-5 animate-spin" />
+                          <span>Drafting</span>
+                        </div>
+                      ) : selectedDocument === 'Trial Balance' ? (
                          <div className="text-center mb-4">
                             <h3 className="text-lg font-semibold">Trial Balance of ABC Consulting, Inc.</h3>
                             <p className="text-sm text-muted-foreground">As of December 31, 2024</p>
@@ -455,6 +468,8 @@ export default function Home() {
       )}
     </div>
   );
+
+    
 
     
 
