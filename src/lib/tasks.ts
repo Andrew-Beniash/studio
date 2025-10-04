@@ -10,7 +10,7 @@ export type Task = {
 export const tasks: Task[] = [
   {
     id: 1,
-    title: "Finalize Q3 Tax Filings",
+    title: "State Nexus Analysis 2024",
     customerName: "ABC Consulting LLC",
     priority: "High",
     dueDate: "2024-09-15",
