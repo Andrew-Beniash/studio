@@ -38,16 +38,7 @@ const getRiskVariant = (risk: string) => {
 
 export function OpportunityAnalysisContent() {
   return (
-    <div className="space-y-1">
-      <div>
-        <h2 className="text-base font-semibold text-black/90">Riviera Holdings – SALT Review 2025</h2>
-        <div className="flex items-center gap-2 mt-2">
-          <Badge variant="outline">Credits & Incentives</Badge>
-          <Badge variant="default">Qualified</Badge>
-          <Badge variant={getRiskVariant("Medium")}>Medium Risk</Badge>
-        </div>
-      </div>
-      
+    <div className="space-y-1 pt-4">
       <Accordion type="multiple" defaultValue={["item-1", "item-2", "item-3", "item-4", "item-5"]} className="w-full">
         <Section title="Opportunity Summary" value="item-1">
           <InfoRow label="Client / Industry / Region" value="Riviera Holdings / Hospitality / West" />
@@ -108,3 +99,5 @@ export function OpportunityAnalysisContent() {
     </div>
   );
 }
+
+    

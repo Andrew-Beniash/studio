@@ -582,12 +582,19 @@ export default function Home() {
        <AlertDialog open={isOpportunityAnalysisOpen} onOpenChange={setIsOpportunityAnalysisOpen}>
         <AlertDialogContent className="max-w-3xl">
           <AlertDialogHeader>
-            <AlertDialogTitle className="text-[11px] font-semibold tracking-wider uppercase text-black/60 pb-2.5 mb-1 border-b border-black/5">Opportunity Analysis</AlertDialogTitle>
-            <OpportunityAnalysisContent />
+            <div className="flex justify-between items-center">
+              <div>
+                <AlertDialogTitle className="text-[11px] font-semibold tracking-wider uppercase text-black/60 pb-2.5 mb-1 border-b border-black/5">Opportunity Analysis</AlertDialogTitle>
+                <h2 className="text-base font-semibold text-black/90">Riviera Holdings – SALT Review 2025</h2>
+              </div>
+              <div className="flex items-center gap-2 mt-2">
+                <Badge variant="outline">Credits & Incentives</Badge>
+                <Badge variant="default">Qualified</Badge>
+                <Badge variant={"secondary"}>Medium Risk</Badge>
+              </div>
+            </div>
           </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Close</AlertDialogCancel>
-          </AlertDialogFooter>
+          <OpportunityAnalysisContent />
         </AlertDialogContent>
       </AlertDialog>
     </div>
@@ -597,3 +604,6 @@ export default function Home() {
 
 
 
+
+
+    
