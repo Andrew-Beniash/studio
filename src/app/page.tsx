@@ -107,7 +107,7 @@ export default function Home() {
       <Header onTitleClick={handleTitleClick} />
       <div className="flex flex-grow pt-16">
         <main
-          className={`flex-grow pb-12 container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col transition-all duration-300 ${
+          className={`flex-grow pb-12 px-4 sm:px-6 lg:px-8 flex flex-col transition-all duration-300 ${
             isChatOpen ? "pr-[30%]" : "pr-4"
           }`}
         >
