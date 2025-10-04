@@ -5,9 +5,11 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuSeparator,
+  DropdownMenuLabel,
 } from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
 import type { Task } from "@/lib/tasks";
-import { tasks } from "@/lib/tasks";
 
 type HeaderProps = {
   onTitleClick?: () => void;
@@ -15,7 +17,6 @@ type HeaderProps = {
 };
 
 export function Header({ onTitleClick, selectedTask }: HeaderProps) {
-  const otherTasks = tasks.filter(task => task.id !== selectedTask?.id);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#78BE20] to-[#00A9CE] shadow-md">
@@ -44,12 +45,24 @@ export function Header({ onTitleClick, selectedTask }: HeaderProps) {
                   <ChevronDown className="h-4 w-4 text-white" />
                 </div>
               </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                {otherTasks.map(task => (
-                  <DropdownMenuItem key={task.id}>
-                    <span>{task.customerName} - {task.title}</span>
-                  </DropdownMenuItem>
-                ))}
+              <DropdownMenuContent className="w-64">
+                <div className="p-2">
+                    <Input placeholder="Search client data" />
+                </div>
+                <DropdownMenuSeparator />
+                <DropdownMenuLabel>QUICK LINKS</DropdownMenuLabel>
+                <DropdownMenuItem>
+                  <span>Customer Profile</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <span>PY 2023 Documents</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <span>Contracts</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <span>Opportunity Analysis</span>
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
