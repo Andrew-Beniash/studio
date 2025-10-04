@@ -580,7 +580,7 @@ export default function Home() {
         </button>
       )}
        <AlertDialog open={isOpportunityAnalysisOpen} onOpenChange={setIsOpportunityAnalysisOpen}>
-        <AlertDialogContent className="max-w-3xl">
+        <AlertDialogContent className="max-w-3xl pb-1">
           <AlertDialogHeader>
             <div className="flex justify-between items-center">
               <div>
@@ -604,3 +604,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
