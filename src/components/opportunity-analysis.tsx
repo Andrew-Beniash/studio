@@ -2,6 +2,7 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { Check, AlertTriangle, Clock } from "lucide-react";
 
 const Section = ({ title, children, value, className }: { title: string, children: React.ReactNode, value: string, className?: string }) => (
