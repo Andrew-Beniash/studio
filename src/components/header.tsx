@@ -52,16 +52,16 @@ export function Header({ onTitleClick, selectedTask, onOpportunityAnalysisClick 
                 </div>
                 <DropdownMenuSeparator />
                 <DropdownMenuLabel>QUICK LINKS</DropdownMenuLabel>
-                <DropdownMenuItem>
+                <DropdownMenuItem className="pl-9">
                   <span>Customer Profile</span>
                 </DropdownMenuItem>
-                <DropdownMenuItem>
+                <DropdownMenuItem className="pl-9">
                   <span>PY 2023 Documents</span>
                 </DropdownMenuItem>
-                <DropdownMenuItem>
+                <DropdownMenuItem className="pl-9">
                   <span>Contracts</span>
                 </DropdownMenuItem>
-                <DropdownMenuItem onSelect={onOpportunityAnalysisClick}>
+                <DropdownMenuItem className="pl-9" onSelect={onOpportunityAnalysisClick}>
                   <span>Opportunity Analysis</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
