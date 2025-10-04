@@ -585,7 +585,7 @@ export default function Home() {
             <div className="flex justify-between items-center">
               <div>
                 <AlertDialogTitle className="text-[11px] font-semibold tracking-wider uppercase text-black/60 pb-2.5 mb-1 border-b border-black/5">Opportunity Analysis</AlertDialogTitle>
-                <h2 className="text-base font-semibold text-black/90">Riviera Holdings – SALT Review 2025</h2>
+                <h2 className="text-base font-semibold text-black/90">ABC Consulting LLC – SALT Review 2025</h2>
               </div>
               <div className="flex items-center gap-2 mt-2">
                 <Badge variant="outline">Credits & Incentives</Badge>
@@ -595,7 +595,7 @@ export default function Home() {
             </div>
           </AlertDialogHeader>
           <OpportunityAnalysisContent />
-          <AlertDialogCancel className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground p-1 h-auto border-0">
+          <AlertDialogCancel className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground p-1 h-auto border-0 focus-visible:ring-0 focus-visible:ring-offset-0">
             <X className="h-4 w-4" />
             <span className="sr-only">Close</span>
           </AlertDialogCancel>

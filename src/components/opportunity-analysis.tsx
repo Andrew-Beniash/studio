@@ -41,7 +41,7 @@ export function OpportunityAnalysisContent() {
     <div className="space-y-1 pt-4">
       <Accordion type="multiple" defaultValue={["item-1", "item-5"]} className="w-full">
         <Section title="Opportunity Summary" value="item-1">
-          <InfoRow label="Client / Industry / Region" value="Riviera Holdings / Hospitality / West" />
+          <InfoRow label="Client / Industry / Region" value="ABC Consulting LLC / Hospitality / West" />
           <InfoRow label="Opportunity Owner" value="James T. Kirk" />
           <InfoRow label="Engagement Start / Duration" value="2025-01-15 / 6 weeks" />
           <p className="pt-2 text-xs text-black/60">
@@ -101,5 +101,6 @@ export function OpportunityAnalysisContent() {
 }
 
     
+
 
 
