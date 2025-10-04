@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -61,7 +61,7 @@ export default function Home() {
     { role: "model", content: "Hello! How can I help you today?" },
   ]);
   const [isLoading, setIsLoading] = useState(false);
-
+  const [driveFiles, setDriveFiles] = useState<any[]>([]);
 
   const handleTaskClick = (taskId: number) => {
     setSelectedTaskId(taskId);
@@ -143,7 +143,7 @@ export default function Home() {
             </div>
           ) : (
             <div className="grid grid-cols-3 gap-8 flex-grow">
-              <div className="col-span-1 flex flex-col gap-8 pl-[50px]">
+              <div className="col-span-1 flex flex-col gap-8">
                 <Card>
                   <CardHeader>
                     <CardTitle>Deliverables</CardTitle>
@@ -170,17 +170,31 @@ export default function Home() {
                     <CardTitle>Document Intake and Checklist</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-2 text-sm">
-                      {documents.map((doc) => (
-                        <li
-                          key={doc}
-                          onClick={() => handleDocumentClick(doc)}
-                          className="cursor-pointer hover:underline"
-                        >
-                          {doc}
-                        </li>
-                      ))}
-                    </ul>
+                  {driveFiles.length > 0 ? (
+                      <ul className="space-y-2 text-sm">
+                        {driveFiles.map((file) => (
+                          <li
+                            key={file.id}
+                            onClick={() => handleDocumentClick(file.name)}
+                            className="cursor-pointer hover:underline"
+                          >
+                            {file.name}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <ul className="space-y-2 text-sm">
+                        {documents.map((doc) => (
+                          <li
+                            key={doc}
+                            onClick={() => handleDocumentClick(doc)}
+                            className="cursor-pointer hover:underline"
+                          >
+                            {doc}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </CardContent>
                 </Card>
               </div>
