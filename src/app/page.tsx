@@ -165,6 +165,13 @@ export default function Home() {
 
   const handleMismatchClick = () => {
     setIsChatOpen(true);
+    setChatMessages([
+      {
+        role: "model",
+        content:
+          "For customer engagement at ABC Consulting, Inc., the trial balance reflects salaries payable of $4,200, while the payroll records show only $3,785 in outstanding liabilities, creating a variance of $415. This mismatch may stem from an un-reversed prior accrual, a duplicate manual entry, or timing differences in recording December payroll. From a tax perspective, the excess accrual could overstate deductible compensation and understate taxable income, while under-recorded liabilities may require adjustments to payroll records for accurate year-end reporting. The recommended next step is to obtain the client’s December payroll register and accrual schedules, confirm whether the $415 relates to holiday pay, bonuses, or overtime adjustments, and document the resolution in the tax workpapers to ensure accuracy in the year-end provision.",
+      },
+    ]);
   };
 
 
@@ -407,5 +414,7 @@ export default function Home() {
     </div>
   );
 }
+
+    
 
     
