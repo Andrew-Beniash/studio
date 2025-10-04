@@ -489,7 +489,7 @@ export default function Home() {
         </main>
         <div
           ref={chatPanelRef}
-          className={`fixed top-11 right-0 h-full bg-slate-50/80 border-l transition-transform duration-300 ${
+          className={`fixed top-11 right-0 h-full bg-slate-50/80 backdrop-blur-sm border-l transition-transform duration-300 ${
             isChatOpen ? "translate-x-0" : "translate-x-full"
           }`}
           style={{ width: "30%" }}
@@ -605,5 +605,7 @@ export default function Home() {
 
 
 
+
+    
 
     
