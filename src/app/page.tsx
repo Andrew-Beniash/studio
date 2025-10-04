@@ -292,12 +292,12 @@ export default function Home() {
                                     <TableRow key={row.account}>
                                         <TableCell className="text-left">
                                           <div className="flex items-center">
+                                            <span>{row.account}</span>
                                             {row.status && (
-                                              <Badge className="mr-2 bg-orange-500 text-white">
+                                              <Badge className="ml-2 bg-orange-500 text-white">
                                                 {row.status}
                                               </Badge>
                                             )}
-                                            <span>{row.account}</span>
                                           </div>
                                         </TableCell>
                                         <TableCell className="text-right">{row.debit}</TableCell>
