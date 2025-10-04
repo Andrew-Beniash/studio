@@ -1,4 +1,4 @@
-import { Bell, Settings } from "lucide-react";
+import { Bell, Settings, Menu } from "lucide-react";
 import { SidebarTrigger } from "./ui/sidebar";
 
 type HeaderProps = {
@@ -12,22 +12,43 @@ const Logo = () => (
     viewBox="0 0 100 100"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <polygon points="50,0 100,25 100,75 50,100 0,75 0,25" fill="#29B6F6" />
-    <polygon points="50,0 100,25 50,50" fill="#0288D1" />
-    <polygon points="50,100 100,75 50,50" fill="#424242" />
-    <polygon points="50,100 0,75 50,50" fill="#66BB6A" />
-    <polygon points="50,0 0,25 50,50" fill="#43A047" />
+    <defs>
+      <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style={{ stopColor: '#78BE20', stopOpacity: 1 }} />
+        <stop offset="100%" style={{ stopColor: '#00A9CE', stopOpacity: 1 }} />
+      </linearGradient>
+    </defs>
+    <path
+      d="M50,0 L100,25 L100,75 L50,100 L0,75 L0,25 Z"
+      fill="url(#logoGradient)"
+    />
+    <path
+      d="M50,0 L100,25 L50,50 Z"
+      fill="rgba(255, 255, 255, 0.2)"
+    />
+    <path
+      d="M50,100 L100,75 L50,50 Z"
+      fill="rgba(0, 0, 0, 0.2)"
+    />
+    <path
+      d="M50,100 L0,75 L50,50 Z"
+      fill="rgba(255, 255, 255, 0.2)"
+    />
+    <path
+      d="M50,0 L0,25 L50,50 Z"
+      fill="rgba(0, 0, 0, 0.2)"
+    />
   </svg>
 );
 
 
 export function Header({ onTitleClick }: HeaderProps) {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-slate-700 to-slate-500 shadow-md">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#78BE20] to-[#00A9CE] shadow-md">
       <div className="container mx-auto flex h-11 items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="absolute left-[10px] flex items-center space-x-4">
           <SidebarTrigger>
-              <Logo />
+              <Menu className="h-5 w-5 text-white" />
           </SidebarTrigger>
           <h1 
             className="text-sm font-bold text-white tracking-tight cursor-pointer" 
