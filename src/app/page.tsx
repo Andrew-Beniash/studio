@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -115,6 +115,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [isRetrievingDocuments, setIsRetrievingDocuments] = useState(false);
   const [suggestedResponses, setSuggestedResponses] = useState<string[]>([]);
+  const chatPanelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (selectedTaskId !== null) {
@@ -125,6 +126,24 @@ export default function Home() {
       return () => clearTimeout(timer);
     }
   }, [selectedTaskId]);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (chatPanelRef.current && !chatPanelRef.current.contains(event.target as Node)) {
+        setIsChatOpen(false);
+      }
+    }
+
+    if (isChatOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isChatOpen]);
 
   const handleTaskClick = (taskId: number) => {
     setSelectedTaskId(taskId);
@@ -343,6 +362,7 @@ export default function Home() {
           )}
         </main>
         <div
+          ref={chatPanelRef}
           className={`fixed top-11 right-0 h-full bg-slate-50/40 border-l transition-transform duration-300 ${
             isChatOpen ? "translate-x-0" : "translate-x-full"
           }`}
@@ -435,5 +455,7 @@ export default function Home() {
       )}
     </div>
   );
+
+    
 
     
