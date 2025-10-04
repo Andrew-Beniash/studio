@@ -11,7 +11,7 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Header } from "@/components/header";
 import { tasks, type Task } from "@/lib/tasks";
 import { Input } from "@/components/ui/input";
@@ -291,7 +291,7 @@ export default function Home() {
           ) : (
             <div className="grid grid-cols-3 gap-8 flex-grow">
               <div className="col-span-1 flex flex-col gap-8">
-                <Card>
+                <Card className="shadow-drop-center">
                   <CardHeader>
                     <CardTitle>Deliverables</CardTitle>
                   </CardHeader>
@@ -315,7 +315,7 @@ export default function Home() {
                     </ul>
                   </CardContent>
                 </Card>
-                <Card>
+                <Card className="shadow-drop-center">
                   <CardHeader>
                     <CardTitle>Document Intake and Checklist</CardTitle>
                   </CardHeader>
@@ -347,7 +347,7 @@ export default function Home() {
                     )}
                   </CardContent>
                 </Card>
-                <Card>
+                <Card className="shadow-drop-center">
                   <CardHeader>
                     <CardTitle>Engagement Team</CardTitle>
                   </CardHeader>
@@ -369,7 +369,7 @@ export default function Home() {
               </div>
               <div className="col-span-2 flex flex-col">
                 {selectedDocument && (
-                  <Card className="flex-grow flex flex-col">
+                  <Card className="flex-grow flex flex-col shadow-drop-center">
                     <CardHeader>
                       <CardTitle>{selectedDocument}</CardTitle>
                     </CardHeader>
@@ -578,14 +578,4 @@ export default function Home() {
       )}
     </div>
   );
-
-    
-    
-
-    
-
-    
-
-    
-
-    
+}
