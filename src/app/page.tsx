@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { X, Mic, Loader2 } from "lucide-react";
 import { sendMessage } from "./actions";
+import { Checkbox } from "@/components/ui/checkbox";
 
 type Message = {
   role: "user" | "model";
@@ -148,14 +149,17 @@ export default function Home() {
                     <CardTitle>Deliverables</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-2 text-sm">
+                    <ul className="space-y-4 text-sm">
                       {deliverables.map((doc) => (
-                        <li
-                          key={doc}
-                          onClick={() => handleDocumentClick(doc)}
-                          className="cursor-pointer hover:underline"
-                        >
-                          {doc}
+                        <li key={doc} className="flex items-center space-x-2">
+                          <Checkbox id={doc} />
+                          <label
+                            htmlFor={doc}
+                            onClick={() => handleDocumentClick(doc)}
+                            className="cursor-pointer hover:underline leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                          >
+                            {doc}
+                          </label>
                         </li>
                       ))}
                     </ul>
