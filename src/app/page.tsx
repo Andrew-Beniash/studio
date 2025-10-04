@@ -143,7 +143,7 @@ export default function Home() {
             </div>
           ) : (
             <div className="grid grid-cols-3 gap-8 flex-grow">
-              <div className="col-span-1 flex flex-col gap-8">
+              <div className="col-span-1 flex flex-col gap-8 pl-[50px]">
                 <Card>
                   <CardHeader>
                     <CardTitle>Deliverables</CardTitle>
