@@ -51,8 +51,8 @@ export function Header({ onTitleClick }: HeaderProps) {
               <Menu className="h-5 w-5 text-white" />
           </SidebarTrigger>
           <h1 
-            className="text-sm font-bold text-white tracking-tight cursor-pointer" 
-            style={{ fontFamily: 'Arial', fontSize: '14px' }}
+            className="text-white tracking-tight cursor-pointer" 
+            style={{ fontFamily: 'Inter, sans-serif', fontSize: '17px', fontWeight: 700, lineHeight: '22px' }}
             onClick={onTitleClick}
           >
             Tax Advisory Platform
