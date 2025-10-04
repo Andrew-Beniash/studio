@@ -45,7 +45,7 @@ export function Header({ onTitleClick, selectedTask }: HeaderProps) {
                   <ChevronDown className="h-4 w-4 text-white" />
                 </div>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-80 bg-background/50 backdrop-blur-sm">
+              <DropdownMenuContent className="w-80 bg-background/50 backdrop-blur-sm p-0">
                 <div className="p-2">
                     <Input placeholder="Search client data" />
                 </div>
