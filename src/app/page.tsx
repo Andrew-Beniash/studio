@@ -373,7 +373,7 @@ export default function Home() {
                           <h4 className="font-bold mt-4">Key Observations and Planning Opportunities</h4>
                           
                           <h5 className="font-semibold mt-2">Payroll Accrual Mismatch</h5>
-                          <p>
+                          <p className="bg-orange-200 p-2 rounded-md">
                             Trial balance reflects $4,200 in salaries payable, while payroll records support $3,785, resulting in a variance of $415.
                           </p>
                           <p>
@@ -551,3 +551,4 @@ export default function Home() {
     
 
     
+
