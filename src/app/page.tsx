@@ -325,6 +325,44 @@ export default function Home() {
                           <Loader2 className="w-5 h-5 animate-spin" />
                           <span>Drafting</span>
                         </div>
+                      ) : selectedDocument === 'Tax Planning Memorandum' ? (
+                        <div className="text-sm space-y-4">
+                          <p><strong>To:</strong> Management, ABC Consulting, Inc.</p>
+                          <p><strong>From:</strong> RSM US LLP – Tax Advisory Services</p>
+                          <p><strong>Date:</strong> December 31, 2024</p>
+                          <p><strong>Subject:</strong> Year-End Tax Planning Considerations for ABC Consulting, Inc.</p>
+
+                          <h4 className="font-bold mt-4">Background</h4>
+                          <p>
+                            ABC Consulting, Inc. is a professional services firm providing advisory support to small and mid-sized businesses. For the year ended December 31, 2024, the company generated approximately $40,000 in service revenue and reported net income before tax of approximately $7,800 (per preliminary trial balance). As the company approaches year-end, several planning opportunities and compliance considerations have been identified to optimize its tax position and mitigate potential risks.
+                          </p>
+                          
+                          <h4 className="font-bold mt-4">Key Observations and Planning Opportunities</h4>
+                          
+                          <h5 className="font-semibold mt-2">Payroll Accrual Mismatch</h5>
+                          <p>
+                            Trial balance reflects $4,200 in salaries payable, while payroll records support $3,785, resulting in a variance of $415.
+                          </p>
+                          <p>
+                            <strong>Recommendation:</strong> Confirm whether the variance is attributable to unrecorded holiday/overtime pay or an over-accrual. Adjust as appropriate to avoid overstating deductible compensation. This ensures compliance with IRS regulations on timing of wage deductions under IRC §461.
+                          </p>
+
+                          <h5 className="font-semibold mt-2">Fixed Asset Depreciation</h5>
+                          <p>
+                            Company has recorded $15,000 in furniture and equipment with accumulated depreciation of $3,000.
+                          </p>
+                          <p>
+                            <strong>Recommendation:</strong> Consider whether assets qualify for Section 179 expensing or 100% bonus depreciation to accelerate deductions. This could provide an immediate tax benefit in 2024, depending on projected taxable income.
+                          </p>
+                          
+                          <h5 className="font-semibold mt-2">Prepaid Expenses and Supplies</h5>
+                          <p>
+                            Trial balance shows $2,000 in prepaid expenses and $1,200 in office supplies.
+                          </p>
+                          <p>
+                            <strong>Recommendation:</strong> Review whether these amounts qualify for current-year deduction under the 12-month rule and de minimis safe harbor. Expensing prepaid and supply costs may reduce taxable income for 2024.
+                          </p>
+                        </div>
                       ) : selectedDocument === 'Trial Balance' ? (
                          <div className="text-center mb-4">
                             <h3 className="text-lg font-semibold">Trial Balance of ABC Consulting, Inc.</h3>
@@ -468,6 +506,8 @@ export default function Home() {
       )}
     </div>
   );
+
+    
 
     
 
