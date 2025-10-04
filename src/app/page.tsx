@@ -54,12 +54,12 @@ const deliverables = [
   },
 ];
 const documents = [
-  "Tax Returns 2024",
-  "Trial Balance",
-  "Fixed Asset Register",
-  "Payroll Records",
-  "State Appointment Data",
-  "Forecasts and Budget",
+  { name: "Tax Returns 2024" },
+  { name: "Trial Balance", status: "Review Needed" },
+  { name: "Fixed Asset Register" },
+  { name: "Payroll Records" },
+  { name: "State Appointment Data" },
+  { name: "Forecasts and Budget" },
 ];
 
 const getStatusBadgeVariant = (status: string) => {
@@ -221,11 +221,18 @@ export default function Home() {
                       <ul className="space-y-2 text-sm">
                         {documents.map((doc) => (
                           <li
-                            key={doc}
-                            onClick={() => handleDocumentClick(doc)}
-                            className="cursor-pointer hover:underline"
+                            key={doc.name}
+                            onClick={() => handleDocumentClick(doc.name)}
+                            className="cursor-pointer hover:underline flex items-center"
                           >
-                            {doc}
+                            <span>{doc.name}</span>
+                            {doc.status === 'Review Needed' && (
+                              <Badge 
+                                className="ml-2 bg-orange-500 text-white"
+                              >
+                                {doc.status}
+                              </Badge>
+                            )}
                           </li>
                         ))}
                       </ul>
