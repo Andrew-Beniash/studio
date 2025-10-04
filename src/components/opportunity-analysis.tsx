@@ -39,7 +39,7 @@ const getRiskVariant = (risk: string) => {
 export function OpportunityAnalysisContent() {
   return (
     <div className="space-y-1 pt-4">
-      <Accordion type="multiple" defaultValue={["item-1", "item-2", "item-3", "item-4", "item-5"]} className="w-full">
+      <Accordion type="multiple" defaultValue={["item-1", "item-5"]} className="w-full">
         <Section title="Opportunity Summary" value="item-1">
           <InfoRow label="Client / Industry / Region" value="Riviera Holdings / Hospitality / West" />
           <InfoRow label="Opportunity Owner" value="James T. Kirk" />
