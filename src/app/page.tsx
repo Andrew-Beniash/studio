@@ -20,7 +20,7 @@ import { X, Mic, Loader2 } from "lucide-react";
 import { sendMessage } from "./actions";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { placeholderImages } from "@/lib/placeholder-images";
-import { AlertDialog, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogFooter, AlertDialogCancel } from "@/components/ui/alert-dialog";
+import { AlertDialog, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogFooter, AlertDialogCancel, AlertDialogDescription } from "@/components/ui/alert-dialog";
 import { OpportunityAnalysisContent } from "@/components/opportunity-analysis";
 
 type Message = {
@@ -302,12 +302,12 @@ export default function Home() {
                     <CardTitle>Deliverables</CardTitle>
                   </CardHeader>
                   <CardContent>
-                  <ul className="space-y-1 text-sm -mx-2">
+                    <ul className="space-y-1 text-sm -mx-2">
                       {deliverables.map((doc) => (
                         <li
                           key={doc.name}
                           onClick={() => handleDocumentClick(doc.name)}
-                          className="flex items-center justify-between p-2 rounded-md cursor-pointer hover:bg-gray-100"
+                          className="flex items-center justify-between p-2 rounded-md cursor-pointer font-normal text-[#1d1d1f] cursor-pointer hover:bg-[#f5f5f7] hover:text-blue-600 focus:bg-[#f5f5f7] focus:text-blue-600"
                         >
                           <span>{doc.name}</span>
                           <Badge variant={getStatusBadgeVariant(doc.status)}>
@@ -334,7 +334,7 @@ export default function Home() {
                           <li
                             key={doc.name}
                             onClick={() => handleDocumentClick(doc.name)}
-                            className="cursor-pointer flex items-center justify-between p-2 rounded-md hover:bg-gray-100"
+                            className="cursor-pointer flex items-center justify-between p-2 rounded-md font-normal text-[#1d1d1f] cursor-pointer hover:bg-[#f5f5f7] hover:text-blue-600 focus:bg-[#f5f5f7] focus:text-blue-600"
                           >
                             <span>{doc.name}</span>
                             {doc.status === 'Review Needed' && (
