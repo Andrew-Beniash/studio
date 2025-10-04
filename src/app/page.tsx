@@ -111,9 +111,7 @@ export default function Home() {
   );
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [chatInput, setChatInput] = useState("");
-  const [chatMessages, setChatMessages] = useState<Message[]>([
-    { role: "model", content: "Hello! How can I help you today?" },
-  ]);
+  const [chatMessages, setChatMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isRetrievingDocuments, setIsRetrievingDocuments] = useState(false);
 
@@ -411,3 +409,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
