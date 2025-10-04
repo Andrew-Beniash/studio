@@ -380,7 +380,7 @@ export default function Home() {
                     <Button
                         key={index}
                         size="sm"
-                        className="text-left h-auto bg-gradient-to-r from-[#78BE20] to-[#00A9CE] text-white"
+                        className="text-left h-auto bg-gradient-to-r from-[#78BE20] to-[#00A9CE] text-white whitespace-normal w-full"
                         onClick={() => handleSendMessage(response)}
                     >
                         {response}
@@ -437,11 +437,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
-
-    
-
-
-
-    
