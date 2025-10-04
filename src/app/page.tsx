@@ -164,8 +164,6 @@ export default function Home() {
   };
 
   const handleMismatchClick = () => {
-    const mismatchMessage = "Data Validation Alert: Salaries Payable vs. Payroll Records Customer Engagement – ABC Consulting, Inc. Source Amount (USD) Trial Balance – Salaries Payable $4,200 Payroll Records – Outstanding Liabilities $3,785 Variance $415";
-    setChatMessages(prevMessages => [...prevMessages, { role: "model", content: mismatchMessage }]);
     setIsChatOpen(true);
   };
 
