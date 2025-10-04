@@ -22,6 +22,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { placeholderImages } from "@/lib/placeholder-images";
 import { AlertDialog, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogFooter, AlertDialogCancel, AlertDialogDescription } from "@/components/ui/alert-dialog";
 import { OpportunityAnalysisContent } from "@/components/opportunity-analysis";
+import { useToast } from "@/hooks/use-toast";
 
 type Message = {
   role: "user" | "model";
@@ -121,6 +122,7 @@ export default function Home() {
   const [isOpportunityAnalysisOpen, setIsOpportunityAnalysisOpen] = useState(false);
   const chatPanelRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const { toast } = useToast();
 
   useEffect(() => {
     if (selectedTask) {
@@ -248,6 +250,14 @@ export default function Home() {
   
   const handleExplainClick = () => {
     setIsExplainChipExpanded(!isExplainChipExpanded);
+  };
+
+  const handleProceed = () => {
+    setIsOpportunityAnalysisOpen(false);
+    toast({
+      title: "The opportunity created in CRM",
+      duration: 3000,
+    });
   };
 
 
@@ -594,7 +604,7 @@ export default function Home() {
               </div>
             </div>
           </AlertDialogHeader>
-          <OpportunityAnalysisContent />
+          <OpportunityAnalysisContent onProceed={handleProceed} />
           <AlertDialogCancel className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground p-1 h-auto border-0 focus-visible:ring-0 focus-visible:ring-offset-0">
             <X className="h-4 w-4" />
             <span className="sr-only">Close</span>

@@ -37,7 +37,7 @@ const getRiskVariant = (risk: string) => {
 };
 
 
-export function OpportunityAnalysisContent() {
+export function OpportunityAnalysisContent({ onProceed }: { onProceed?: () => void }) {
   return (
     <div className="space-y-1 pt-4">
       <Accordion type="multiple" defaultValue={["item-1", "item-5"]} className="w-full">
@@ -90,7 +90,7 @@ export function OpportunityAnalysisContent() {
               <AlertTriangle className="w-4 h-4 mr-1" />
               Flag for Review
             </Button>
-            <Button size="sm" className="bg-gradient-to-r from-[#78BE20] to-[#00A9CE] text-white">
+            <Button size="sm" className="bg-gradient-to-r from-[#78BE20] to-[#00A9CE] text-white" onClick={onProceed}>
               <Check className="w-4 h-4 mr-1" />
               Proceed
             </Button>
