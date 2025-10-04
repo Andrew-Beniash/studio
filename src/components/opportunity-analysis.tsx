@@ -91,7 +91,7 @@ export function OpportunityAnalysisContent() {
             </Button>
             <Button size="sm" className="bg-green-600 hover:bg-green-700">
               <Check className="w-4 h-4 mr-1" />
-              Approve Opportunity
+              Proceed
             </Button>
           </div>
         </Section>
@@ -101,3 +101,4 @@ export function OpportunityAnalysisContent() {
 }
 
     
+
