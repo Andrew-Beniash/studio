@@ -352,8 +352,8 @@ export default function Home() {
                     <CardTitle>Engagement Team</CardTitle>
                   </CardHeader>
                   <CardContent className="flex space-x-2">
-                    {placeholderImages.slice(0, 4).map((image) => (
-                      <Avatar key={image.id}>
+                    {placeholderImages.slice(0, 4).map((image, index) => (
+                      <Avatar key={image.id} className={index === placeholderImages.slice(0, 4).length - 1 ? 'border border-green-500' : ''}>
                         <Image
                           src={image.imageUrl}
                           alt={image.description}
