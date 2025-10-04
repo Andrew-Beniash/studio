@@ -379,9 +379,8 @@ export default function Home() {
                     {suggestedResponses.map((response, index) => (
                     <Button
                         key={index}
-                        variant="outline"
                         size="sm"
-                        className="text-left h-auto"
+                        className="text-left h-auto bg-gradient-to-r from-[#78BE20] to-[#00A9CE] text-white"
                         onClick={() => handleSendMessage(response)}
                     >
                         {response}
@@ -443,3 +442,6 @@ export default function Home() {
 
     
 
+
+
+    
