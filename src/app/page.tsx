@@ -580,7 +580,7 @@ export default function Home() {
         </button>
       )}
        <AlertDialog open={isOpportunityAnalysisOpen} onOpenChange={setIsOpportunityAnalysisOpen}>
-        <AlertDialogContent className="max-w-2xl">
+        <AlertDialogContent className="max-w-3xl">
           <AlertDialogHeader>
             <AlertDialogTitle className="text-[11px] font-semibold tracking-wider uppercase text-black/60 pb-2.5 mb-1 border-b border-black/5">Opportunity Analysis</AlertDialogTitle>
             <OpportunityAnalysisContent />
@@ -594,3 +594,4 @@ export default function Home() {
   );
 
     
+
