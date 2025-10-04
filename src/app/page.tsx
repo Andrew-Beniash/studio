@@ -87,6 +87,17 @@ export default function Home() {
     { role: "model", content: "Hello! How can I help you today?" },
   ]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isRetrievingDocuments, setIsRetrievingDocuments] = useState(false);
+
+  useEffect(() => {
+    if (selectedTaskId !== null) {
+      setIsRetrievingDocuments(true);
+      const timer = setTimeout(() => {
+        setIsRetrievingDocuments(false);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [selectedTaskId]);
 
   const handleTaskClick = (taskId: number) => {
     setSelectedTaskId(taskId);
@@ -201,17 +212,24 @@ export default function Home() {
                     <CardTitle>Document Intake and Checklist</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-2 text-sm">
-                      {documents.map((doc) => (
-                        <li
-                          key={doc}
-                          onClick={() => handleDocumentClick(doc)}
-                          className="cursor-pointer hover:underline"
-                        >
-                          {doc}
-                        </li>
-                      ))}
-                    </ul>
+                    {isRetrievingDocuments ? (
+                      <div className="flex items-center space-x-2 text-muted-foreground">
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        <span>Retrieving documents from iManage</span>
+                      </div>
+                    ) : (
+                      <ul className="space-y-2 text-sm">
+                        {documents.map((doc) => (
+                          <li
+                            key={doc}
+                            onClick={() => handleDocumentClick(doc)}
+                            className="cursor-pointer hover:underline"
+                          >
+                            {doc}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </CardContent>
                 </Card>
               </div>
