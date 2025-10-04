@@ -375,7 +375,7 @@ export default function Home() {
       {!isChatOpen && (
         <button
           onClick={toggleChat}
-          className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-gradient-to-r from-slate-700 to-slate-500 flex items-center justify-center hover:shadow-[0_0_15px_rgba(255,255,255,0.6)] transition"
+          className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-gradient-to-r from-[#78BE20] to-[#00A9CE] flex items-center justify-center hover:shadow-[0_0_15px_rgba(255,255,255,0.6)] transition"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
