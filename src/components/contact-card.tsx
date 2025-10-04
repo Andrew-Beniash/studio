@@ -19,7 +19,7 @@ export function ContactCard({ name, role, phone, imageUrl }: ContactCardProps) {
       <h3 className="font-semibold text-lg">{name}</h3>
       <p className="text-sm text-muted-foreground">{role}</p>
       <p className="text-sm text-muted-foreground mt-2">{phone}</p>
-      <Button className="mt-4 w-full bg-[#4b5563] text-white">Contact in MS Teams</Button>
+      <Button className="mt-4 w-full bg-gradient-to-r from-[#78BE20] to-[#00A9CE] text-white">Contact in MS Teams</Button>
     </div>
   );
 }
