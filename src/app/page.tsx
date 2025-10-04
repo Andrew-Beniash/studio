@@ -362,9 +362,6 @@ export default function Home() {
                           className="object-cover"
                           data-ai-hint={image.imageHint}
                         />
-                        <AvatarFallback>
-                          {image.description.charAt(0)}
-                        </AvatarFallback>
                       </Avatar>
                     ))}
                   </CardContent>
@@ -583,6 +580,8 @@ export default function Home() {
   );
 
     
+    
+
     
 
     
