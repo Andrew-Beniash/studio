@@ -59,7 +59,7 @@ const documents = [
   { name: "Tax Returns 2024" },
   { name: "Trial Balance", status: "Review Needed" },
   { name: "Fixed Asset Register" },
-  { name: "Payroll Records" },
+  { name: "Payroll Records", status: "Review Needed" },
   { name: "State Appointment Data" },
   { name: "Forecasts and Budget" },
 ];
