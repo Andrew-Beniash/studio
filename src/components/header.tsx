@@ -1,8 +1,11 @@
+
 import { Bell, Settings, Menu } from "lucide-react";
 import { SidebarTrigger } from "./ui/sidebar";
+import type { Task } from "@/lib/tasks";
 
 type HeaderProps = {
   onTitleClick?: () => void;
+  selectedTask?: Task | null;
 };
 
 const Logo = () => (
@@ -42,10 +45,10 @@ const Logo = () => (
 );
 
 
-export function Header({ onTitleClick }: HeaderProps) {
+export function Header({ onTitleClick, selectedTask }: HeaderProps) {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#78BE20] to-[#00A9CE] shadow-md">
-      <div className="container mx-auto flex h-11 items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto flex h-11 items-center justify-between px-4 sm:px-6 lg:px-8 relative">
         <div className="absolute left-[10px] flex items-center space-x-4">
           <SidebarTrigger>
               <Menu className="h-5 w-5 text-white" />
@@ -58,6 +61,18 @@ export function Header({ onTitleClick }: HeaderProps) {
             Tax Advisory Platform
           </h1>
         </div>
+        
+        {selectedTask && (
+          <div className="absolute left-1/2 -translate-x-1/2">
+            <h2 
+              className="text-white"
+              style={{fontFamily: 'SF Pro, sans-serif', fontWeight: 700, fontSize: '13px', lineHeight: '16px'}}
+            >
+              ABC Consulting - State Nexus Analysis 2024
+            </h2>
+          </div>
+        )}
+
         <div className="absolute right-[10px] flex items-center space-x-4">
           <Bell className="h-4 w-4 text-white" />
           <Settings className="h-4 w-4 text-white" />
@@ -66,3 +81,5 @@ export function Header({ onTitleClick }: HeaderProps) {
     </header>
   );
 }
+
+    

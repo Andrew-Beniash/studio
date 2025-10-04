@@ -11,7 +11,7 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import { Header } from "@/components/header";
-import { tasks } from "@/lib/tasks";
+import { tasks, type Task } from "@/lib/tasks";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { X, Mic, Loader2 } from "lucide-react";
@@ -105,7 +105,7 @@ const trialBalanceTotals = {
 
 
 export default function Home() {
-  const [selectedTaskId, setSelectedTaskId] = useState<number | null>(null);
+  const [selectedTask, setSelectedTask] = useState<Task | null>(null);
   const [selectedDocument, setSelectedDocument] = useState<string | null>(
     null
   );
@@ -121,14 +121,14 @@ export default function Home() {
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (selectedTaskId !== null) {
+    if (selectedTask) {
       setIsRetrievingDocuments(true);
       const timer = setTimeout(() => {
         setIsRetrievingDocuments(false);
       }, 3000);
       return () => clearTimeout(timer);
     }
-  }, [selectedTaskId]);
+  }, [selectedTask]);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -171,13 +171,13 @@ export default function Home() {
     };
 }, []);
 
-  const handleTaskClick = (taskId: number) => {
-    setSelectedTaskId(taskId);
+  const handleTaskClick = (task: Task) => {
+    setSelectedTask(task);
     setSelectedDocument(null);
   };
 
   const handleTitleClick = () => {
-    setSelectedTaskId(null);
+    setSelectedTask(null);
     setSelectedDocument(null);
   };
 
@@ -238,20 +238,20 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Header onTitleClick={handleTitleClick} />
+      <Header onTitleClick={handleTitleClick} selectedTask={selectedTask} />
       <div className="flex flex-grow pt-16">
         <main
           className={`flex-grow pb-12 px-4 sm:px-6 lg:px-8 flex flex-col transition-all duration-300 ${
             isChatOpen ? "pr-[30%]" : ""
           }`}
         >
-          {selectedTaskId === null ? (
+          {selectedTask === null ? (
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {tasks.map((task) => (
                 <Card
                   key={task.id}
                   className="flex flex-col shadow-drop-center cursor-pointer"
-                  onClick={() => handleTaskClick(task.id)}
+                  onClick={() => handleTaskClick(task)}
                 >
                   <CardHeader>
                     <CardTitle>{task.title}</CardTitle>
@@ -541,14 +541,3 @@ export default function Home() {
   );
 
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
