@@ -165,6 +165,12 @@ export default function Home() {
     }
   };
 
+  const handleMismatchClick = () => {
+    const mismatchMessage = "Data Validation Alert: Salaries Payable vs. Payroll Records Customer Engagement – ABC Consulting, Inc. Source Amount (USD) Trial Balance – Salaries Payable $4,200 Payroll Records – Outstanding Liabilities $3,785 Variance $415";
+    setChatMessages(prevMessages => [...prevMessages, { role: "model", content: mismatchMessage }]);
+    setIsChatOpen(true);
+  };
+
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -294,7 +300,7 @@ export default function Home() {
                                           <div className="flex items-center">
                                             <span>{row.account}</span>
                                             {row.status && (
-                                              <Badge className="ml-2 bg-orange-500 text-white">
+                                              <Badge className="ml-2 bg-orange-500 text-white cursor-pointer" onClick={handleMismatchClick}>
                                                 {row.status}
                                               </Badge>
                                             )}
@@ -352,7 +358,7 @@ export default function Home() {
                         : "bg-secondary"
                     }`}
                   >
-                    <p className="text-sm">{msg.content}</p>
+                    <p className="text-sm whitespace-pre-wrap">{msg.content}</p>
                   </div>
                 </div>
               ))}
