@@ -116,7 +116,9 @@ export default function Home() {
   const [isRetrievingDocuments, setIsRetrievingDocuments] = useState(false);
   const [isDrafting, setIsDrafting] = useState(false);
   const [suggestedResponses, setSuggestedResponses] = useState<string[]>([]);
+  const [explainChip, setExplainChip] = useState<{ top: number; left: number; width: number } | null>(null);
   const chatPanelRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (selectedTaskId !== null) {
@@ -145,6 +147,29 @@ export default function Home() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isChatOpen]);
+
+  useEffect(() => {
+    const handleMouseUp = () => {
+        const selection = window.getSelection();
+        if (selection && selection.toString().trim() !== "" && contentRef.current?.contains(selection.anchorNode)) {
+            const range = selection.getRangeAt(0);
+            const rect = range.getBoundingClientRect();
+            const contentRect = contentRef.current.getBoundingClientRect();
+            setExplainChip({
+                top: rect.top - contentRect.top - 35, // Position above selection
+                left: rect.left - contentRect.left + (rect.width / 2) - 40, // Center horizontally
+                width: rect.width
+            });
+        } else {
+            setExplainChip(null);
+        }
+    };
+
+    document.addEventListener("mouseup", handleMouseUp);
+    return () => {
+        document.removeEventListener("mouseup", handleMouseUp);
+    };
+}, []);
 
   const handleTaskClick = (taskId: number) => {
     setSelectedTaskId(taskId);
@@ -319,7 +344,15 @@ export default function Home() {
                     <CardHeader>
                       <CardTitle>{selectedDocument}</CardTitle>
                     </CardHeader>
-                    <CardContent className="flex-grow">
+                    <CardContent className="flex-grow relative" ref={contentRef}>
+                      {explainChip && (
+                          <div
+                              className="absolute z-10 px-3 py-1 text-sm text-white bg-gradient-to-r from-[#78BE20] to-[#00A9CE] rounded-md shadow-lg"
+                              style={{ top: `${explainChip.top}px`, left: `${explainChip.left}px` }}
+                          >
+                              Explain
+                          </div>
+                      )}
                       {isDrafting && selectedDocument === 'Tax Planning Memorandum' ? (
                         <div className="flex items-center space-x-2 text-muted-foreground">
                           <Loader2 className="w-5 h-5 animate-spin" />
