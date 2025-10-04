@@ -2,6 +2,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -10,6 +11,7 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Header } from "@/components/header";
 import { tasks, type Task } from "@/lib/tasks";
 import { Input } from "@/components/ui/input";
@@ -18,7 +20,7 @@ import { X, Mic, Loader2 } from "lucide-react";
 import { sendMessage } from "./actions";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, TableCaption } from "@/components/ui/table";
-
+import { placeholderImages } from "@/lib/placeholder-images";
 
 type Message = {
   role: "user" | "model";
@@ -351,6 +353,27 @@ export default function Home() {
                     )}
                   </CardContent>
                 </Card>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Engagement Team</CardTitle>
+                  </CardHeader>
+                  <CardContent className="flex space-x-2">
+                    {placeholderImages.slice(0, 4).map((image) => (
+                      <Avatar key={image.id}>
+                        <Image
+                          src={image.imageUrl}
+                          alt={image.description}
+                          width={40}
+                          height={40}
+                          data-ai-hint={image.imageHint}
+                        />
+                        <AvatarFallback>
+                          {image.description.charAt(0)}
+                        </AvatarFallback>
+                      </Avatar>
+                    ))}
+                  </CardContent>
+                </Card>
               </div>
               <div className="col-span-2 flex flex-col">
                 {selectedDocument && (
@@ -565,4 +588,6 @@ export default function Home() {
   );
 
     
+    
+
     
