@@ -10,7 +10,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import type { Task } from "@/lib/tasks";
-import { Logo } from "./logo";
 
 type HeaderProps = {
   onTitleClick?: () => void;
@@ -24,7 +23,6 @@ export function Header({ onTitleClick, selectedTask, onOpportunityAnalysisClick 
     <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#78BE20] to-[#00A9CE] shadow-md">
       <div className="flex h-11 items-center justify-between px-4 sm:px-6 lg:px-8 relative">
         <div className="flex items-center gap-2">
-          <Logo />
           <h1 
             className="text-white tracking-tight cursor-pointer" 
             style={{ fontFamily: 'Inter, sans-serif', fontSize: '17px', fontWeight: 700, lineHeight: '22px' }}
