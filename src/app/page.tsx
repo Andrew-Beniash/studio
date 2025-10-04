@@ -582,7 +582,7 @@ export default function Home() {
        <AlertDialog open={isOpportunityAnalysisOpen} onOpenChange={setIsOpportunityAnalysisOpen}>
         <AlertDialogContent className="max-w-2xl">
           <AlertDialogHeader>
-            <AlertDialogTitle>Opportunity Analysis</AlertDialogTitle>
+            <AlertDialogTitle className="text-[11px] font-semibold tracking-wider uppercase text-black/60 pb-2.5 mb-1 border-b border-black/5">Opportunity Analysis</AlertDialogTitle>
             <OpportunityAnalysisContent />
           </AlertDialogHeader>
           <AlertDialogFooter>
