@@ -11,7 +11,7 @@ export const tasks: Task[] = [
   {
     id: 1,
     title: "Finalize Q3 Tax Filings",
-    customerName: "Innovate Inc.",
+    customerName: "ABC Consulting LLC",
     priority: "High",
     dueDate: "2024-09-15",
   },
