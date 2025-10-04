@@ -16,7 +16,7 @@ import { Header } from "@/components/header";
 import { tasks, type Task } from "@/lib/tasks";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { X, Mic, Loader2 } from "lucide-react";
+import { X, Mic, Loader2, Calendar } from "lucide-react";
 import { sendMessage } from "./actions";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { placeholderImages } from "@/lib/placeholder-images";
@@ -363,8 +363,9 @@ export default function Home() {
                   </CardContent>
                 </Card>
                 <Card className="shadow-drop-center">
-                  <CardHeader>
+                  <CardHeader className="flex-row items-center justify-between">
                     <CardTitle>Engagement Team</CardTitle>
+                    <Calendar className="h-4 w-4 text-muted-foreground" />
                   </CardHeader>
                   <CardContent className="flex space-x-2">
                     {placeholderImages.slice(0, 4).map((image, index) => (
@@ -628,6 +629,8 @@ export default function Home() {
     </div>
   );
 }
+
+    
 
     
 
