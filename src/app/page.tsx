@@ -288,7 +288,7 @@ export default function Home() {
                           <li
                             key={doc.name}
                             onClick={() => handleDocumentClick(doc.name)}
-                            className="cursor-pointer hover:underline flex items-center"
+                            className="cursor-pointer flex items-center"
                           >
                             <span>{doc.name}</span>
                             {doc.status === 'Review Needed' && (
@@ -455,6 +455,8 @@ export default function Home() {
       )}
     </div>
   );
+
+    
 
     
 
