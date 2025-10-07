@@ -85,48 +85,8 @@ export function Header({ onTitleClick, selectedTask, onOpportunityAnalysisClick 
             </DialogTrigger>
             <DialogContent>
               <DialogHeader>
-                <DialogTitle>Settings</DialogTitle>
-                <DialogDescription>
-                  Manage your account settings and preferences.
-                </DialogDescription>
+                <DialogTitle>Ok, that's all, let's return to the presentation!</DialogTitle>
               </DialogHeader>
-              <div className="grid gap-6 py-4">
-                <div className="grid gap-3">
-                  <Label>Theme</Label>
-                  <RadioGroup defaultValue="light" className="flex gap-4">
-                    <div>
-                      <RadioGroupItem value="light" id="light" className="peer sr-only" />
-                      <Label htmlFor="light" className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary">
-                        Light
-                      </Label>
-                    </div>
-                     <div>
-                      <RadioGroupItem value="dark" id="dark" className="peer sr-only" />
-                      <Label htmlFor="dark" className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary">
-                        Dark
-                      </Label>
-                    </div>
-                     <div>
-                      <RadioGroupItem value="system" id="system" className="peer sr-only" />
-                      <Label htmlFor="system" className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary">
-                        System
-                      </Label>
-                    </div>
-                  </RadioGroup>
-                </div>
-                <div className="flex items-center justify-between">
-                  <Label htmlFor="notifications">Enable Notifications</Label>
-                  <Switch id="notifications" />
-                </div>
-              </div>
-              <DialogFooter>
-                <DialogClose asChild>
-                  <Button type="button" variant="secondary">
-                    Close
-                  </Button>
-                </DialogClose>
-                <Button type="submit">Save changes</Button>
-              </DialogFooter>
             </DialogContent>
           </Dialog>
         </div>
